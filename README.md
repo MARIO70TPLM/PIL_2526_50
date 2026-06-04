@@ -13,11 +13,11 @@ L'objectif principal est de concevoir et développer une **application web clien
 |---|---|---|---|
 |DAHA Edouard Mariano |Chef de projet et Développeur Frontend | Internet & Multimédia (IM) | dahamariano@gmail.com |
 | ADELOUI Adégoké Paul Odilon|API, Base de données et Responsable technique|Sécurité Informatique(SI) | Pauladeloui16@gmail.com |
-| GAHOU Margot Coffi | Développeur Backend | Intelligence Artificielle (IA) | margotgahou@gmail.com|
-|KOUGNANDOU Senahin Mathilde |Dévéloppeur Backend| Génie Logiciel(GL)| email@etudiant.ifri.bj |
+| GAHOU Margot Coffi | Développeur Backend | Sécurité Informatique(SI)  | margotgahou@gmail.com|
+|KOUGNANDOU Senahin Mathilde |Dévéloppeur Backend| Génie Logiciel(GL)| kougandoumathilde@gmail.com |
 | AGO Essename Clotilde | Développeur Frontend | Génie Logiciel(GL)| agoessename@gmail.com |
 | SAIZONOU Maadjidah Gloria Modoukpe| Documentation/Tests | Sécurité Informatique(SI)|saizonougloria32@gmail.com |
-|TANSI DAHOU Josué|API et Base de données|Intelligence Artificielle(IA)|josuetravor@gmail.com|
+|TANSI DAHOU Josué| Dévelopeur Backend |Intelligence Artificielle(IA)|josuetravor@gmail.com|
 ## 🗂️ Structure du Projet
 
 ```
@@ -68,4 +68,4 @@ git push origin feature/ma-fonctionnalite
  - date début: 10 juin 2026
 
 
-**Projet Intégrateur PIL1 — IFRI / Université d'Abomey-Calavi — 2025-2026*
+*Projet Intégrateur PIL1 — IFRI / Université d'Abomey-Calavi — 2025-2026*
