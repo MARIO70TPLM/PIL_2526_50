@@ -18,10 +18,10 @@ L'objectif principal est de concevoir et développer une **application web clien
 | Nom & Prénom | Rôle principal | Domaine | Contact |
 |---|---|---|---|
 |DAHA Edouard Mariano |Chef de projet et Développeur Frontend | Internet & Multimédia (IM) | dahamariano@gmail.com |
-| ADELOUI Adégoké Paul Odilon|API,Base de donnéeset Responsable technique/ |Sécurité Informatique(SI) | email@etudiant.ifri.bj |
+| ADELOUI Adégoké Paul Odilon|API,Base de donnéeset Responsable technique|Sécurité Informatique(SI) | email@etudiant.ifri.bj |
 | GAHOU Margot Coffi | Développeur Backend | Intelligence Artificielle (IA) | email@etudiant.ifri.bj |
 |KOUGNANDOU Senahin Mathilde |Dévéloppeur Backend| Génie Logiciel(GL)| email@etudiant.ifri.bj |
-| AGO Essename Clotilde | Développeur Frontend / Génie Logiciel(GL)| agoessename@gmail.com |
+| AGO Essename Clotilde | Développeur Frontend | Génie Logiciel(GL)| agoessename@gmail.com |
 | SAIZONOU Maadjidah Gloria Modoukpe| Documentation/Tests | Sécurité Informatique(SI)|saizonougloria32@gmail.com |
 
 ## 🗂️ Structure du projet
