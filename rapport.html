@@ -1,0 +1,435 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rapport de Projet - IFRI_MentorLink</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #1a73e8;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            justify-content: center;
+            padding: 15px;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #1a73e8;
+            font-weight: 600;
+            font-size: 0.95em;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        section {
+            background: white;
+            border-radius: 10px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            font-size: 1.6em;
+            color: #1e78ee;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e8f0fe;
+        }
+
+        section h3 {
+            font-size: 1.2em;
+            color: #444;
+            margin: 20px 0 10px;
+        }
+
+        p {
+            line-height: 1.7;
+            margin-bottom: 10px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        table th {
+            background-color: #1a73e8;
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        table td {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        table tr:hover {
+            background-color: #f8f9ff;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        pre {
+            background-color: #282c34;
+            color: #abb2bf;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #1a73e8;
+            color: white;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- EN-TÊTE -->
+    <header>
+        <h1>IFRI_MentorLink</h1>
+        <p>Rapport de Projet || Groupe 50</p>
+        <p> Université d'Abomey-Calavi - <strong>IFRI</strong></p>
+    </header>
+
+   
+
+    <main>
+
+
+        <section id="groupe">
+            <h2>1. Présentation du groupe</h2>
+            <h3>Nom du groupe</h3>
+            <p>Groupe 50 </p>
+
+            <h3>Membres du groupe</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Noms et Prénoms</th>
+                        <th>Filières</th>
+                        <th>Tâches</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ADELOUI Adégoké Paul Odilon</td>
+                        <td>Sécurité Informatique (SI)</td>
+                        <td>Base de données</td>
+                    </tr>
+                    <tr>
+                        <td>SAIZONOU Maadjidah Gloria Modoukpê</td>
+                        <td>Sécurité Informatique (SI)</td>
+                        <td>Documentation et Rapport</td>
+                    </tr>
+                    <tr>
+                        <td>GAHOU Margot Coffi</td>
+                        <td>Sécurité Informatique (SI)</td>
+                        <td> Backend</td>
+                    </tr>
+                    <tr>
+                        <td>KOUGNANDOU Senatin Mathilde</td>
+                        <td>Génie Logiciel (GL)</td>
+                        <td>Backend</td>
+                    </tr>
+                    <tr>
+                        <td>uukkj</td>
+                        <td>[Filière]</td>
+                        <td>Backend</td>
+                    </tr>
+                    <tr>
+                        <td>AGO Esséname Clotilde</td>
+                        <td>Génie Logiciel (GL)</td>
+                        <td>Frontend</td>
+                    </tr>
+                    <tr>
+                        <td>DAHA Edouard Mariano</td>
+                        <td>Internet et Multimédia</td>
+                        <td>Frontend</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Fonctionnement au sein du groupe -->
+        <section id="fonctionnement">
+            <h2>2. Fonctionnement Interne du Groupe</h2>
+
+            <h3>Organisation du travail</h3>
+            <p>
+                Le groupe a adopté une méthode où chaque membre
+                est responsable d'une partie précis du projet. Les échanges
+                se sont faits via WhatsApp et en présentiel et les tâches
+                ont été suivies via GitHub Issues.
+            </p>
+
+            <h3>Répartition des tâches</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Membre</th>
+                        <th>Tâches réalisées</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>ADELOUI Adégoké Paul Odilon</td>
+                        <td>Conception et création de la base de données SQL</td>
+                    </tr>
+                    <tr>
+                        <td>[Nom]</td>
+                        <td>Développement des routes backend</td>
+                    </tr>
+                     <tr>
+                        <td>[Nom]</td>
+                        <td>Développement des routes backend</td>
+                    </tr>
+                    <tr>
+                        <td>[Nom]</td>
+                        <td>Algorithme de matching, messagerie backend</td>
+                    </tr>
+                    <tr>
+                        <td>[Nom]</td>
+                        <td>Interface utilisateur, pages HTML/CSS</td>
+                    </tr>
+                    <tr>
+                        <td>[Nom]</td>
+                        <td>Interface matching et messagerie frontend</td>
+                    </tr>
+                    <tr>
+                        <td>SAIZONOU Maadjidah Gloria Modoukpê</td>
+                        <td>Rapport HTML, documentation technique</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Démarche suivie</h3>
+            <p>
+                Le projet a été réalisé en plusieurs phases :
+            </p>
+            <ol style="margin-left: 20px; line-height: 2;">
+                <li>Analyse du cahier des charges et compréhension des exigences</li>
+                <li>Conception de la base de données</li>
+                <li>Mise en place de l'environnement de développement</li>
+                <li>Développement des modules (profils, matching, messagerie)</li>
+                <li>Tests et corrections</li>
+                <li>Rédaction du rapport et de la documentation</li>
+            </ol>
+        </section>
+
+        <!-- SECTION 3 : CONCEPTION -->
+        <section id="conception">
+            <h2>3. Conception</h2>
+
+            <h3>Structure du projet</h3>
+            <pre>
+PIL1_2526_50/
+projet-racine/
+├──🗂️ src/
+│   ├── 🗂️backend/   # Code serveur
+│   └── 🗂️frontend/  # Code client
+├── 🗂️tests/         # Suite de tests
+├── 🗂️docs/          # Documentation
+├── 📄 README.md      # Ce fichier
+└── 📄 .gitignore
+            </pre>
+
+            <h3>Base de données</h3>
+            <p>
+                La base de données est composée de <strong>8 tables</strong>
+                interconnectées permettant de gérer les utilisateurs,
+                les compétences, les disponibilités, les offres de mentorat,
+                les matchings et la messagerie.
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Table</th>
+                        <th>Rôle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>utilisateur</code></td>
+                        <td>Stocke les informations de chaque étudiant</td>
+                    </tr>
+                    <tr>
+                        <td><code>competence</code></td>
+                        <td>Liste des matières et compétences disponibles</td>
+                    </tr>
+                    <tr>
+                        <td><code>utilisateur_competence</code></td>
+                        <td>Relie les utilisateurs à leurs compétences et lacunes</td>
+                    </tr>
+                    <tr>
+                        <td><code>disponibilite</code></td>
+                        <td>Créneaux horaires de chaque utilisateur</td>
+                    </tr>
+                    <tr>
+                        <td><code>offre_mentorat</code></td>
+                        <td>Offres et demandes de mentorat publiées</td>
+                    </tr>
+                    <tr>
+                        <td><code>matching</code></td>
+                        <td>Paires mentor-mentoré générées par l'algorithme</td>
+                    </tr>
+                    <tr>
+                        <td><code>conversation</code></td>
+                        <td>Conversations entre utilisateurs</td>
+                    </tr>
+                    <tr>
+                        <td><code>message</code></td>
+                        <td>Messages échangés dans les conversations</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- SECTION 4 : DÉPLOIEMENT -->
+        <section id="deploiement">
+            <h2>4. Instructions de Déploiement</h2>
+
+            <h3>Prérequis</h3>
+            <ul style="margin-left: 20px; line-height: 2;">
+                <li>Python 3.x installé</li>
+                <li>MySQL ou PostgreSQL installé</li>
+                <li>Git installé</li>
+            </ul>
+
+            <h3>Étapes d'installation</h3>
+            <pre>
+# 1. Cloner le dépôt
+git clone https://github.com/[compte]/PIL1_2526_50.git
+
+# 2. Aller dans le dossier backend
+cd PIL1_2526_50/backend
+
+# 3. Installer les dépendances
+pip install -r requirements.txt
+
+# 4. Créer la base de données
+mysql -u root -p &lt; ../database/mentorlink.sql
+
+# 5. Lancer l'application
+python app.py
+            </pre>
+        </section>
+
+        <!-- SECTION 5 : MANUEL D'UTILISATION -->
+        <section id="manuel">
+            <h2>5. Manuel d'Utilisation</h2>
+
+            <h3>Inscription</h3>
+            <p>
+                Rendez-vous sur la page d'accueil et cliquez sur
+                <strong>"S'inscrire"</strong>. Remplissez le formulaire avec
+                vos informations personnelles (nom, prénom, email, téléphone,
+                mot de passe, filière et niveau).
+            </p>
+
+            <h3>Connexion</h3>
+            <p>
+                Entrez votre adresse email ou numéro de téléphone ainsi que
+                votre mot de passe sur la page de connexion.
+            </p>
+
+            <h3>Compléter son profil</h3>
+            <p>
+                Après connexion, accédez à votre profil pour ajouter vos
+                compétences maîtrisées, vos lacunes et vos disponibilités
+                horaires.
+            </p>
+
+            <h3>Publier une offre ou demande de mentorat</h3>
+            <p>
+                Cliquez sur <strong>"Nouvelle offre"</strong> ou
+                <strong>"Nouvelle demande"</strong>, choisissez la matière
+                concernée, le format et vos disponibilités.
+            </p>
+
+            <h3>Trouver un mentor ou mentoré</h3>
+            <p>
+                Accédez à la section <strong>"Matching"</strong> pour voir
+                les suggestions générées automatiquement selon vos
+                compétences et disponibilités.
+            </p>
+
+            <h3>Messagerie</h3>
+            <p>
+                Depuis la section <strong>"Messages"</strong>, vous pouvez
+                envoyer et recevoir des messages avec vos mentors ou mentorés.
+            </p>
+        </section>
+
+    </main>
+
+    <!-- PIED DE PAGE -->
+    <footer>
+        <p>IFRI_MentorLink &copy; 2026 - Groupe 50 - PIL1 IFRI UAC</p>
+    </footer>
+
+</body>
+</html>     
