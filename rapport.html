@@ -269,8 +269,7 @@
             <p>
                 Le projet a été réalisé en plusieurs phases :
             </p>
-            <ol style="margin-left: 20px; line-height: 2;">
-                <li>Analyse du cahier des charges et compréhension des exigences</li>
+            <ol style="margin-left: 20px; line-height: 2;"                <li>Analyse du cahier des charges et compréhension des exigences</li>
                 <li>Conception de la base de données</li>
                 <li>Mise en place de l'environnement de développement</li>
                 <li>Développement des modules (profils, matching, messagerie)</li>
@@ -298,9 +297,8 @@ projet-racine/
 
             <h3>Base de données</h3>
             <p>
-                La base de données est composée de <strong>8 tables</strong>
-                interconnectées permettant de gérer les utilisateurs,
-                les compétences, les disponibilités, les offres de mentorat,
+                La base de données <strong>ifri_mentorlink</strong> est gérée avec MySQL.Elle est composée de tables 
+                interconnectées permettant de gérer les utilisateurs,les matières, les disponibilités, les offres de mentorat,
                 les matchings et la messagerie.
             </p>
 
@@ -314,10 +312,10 @@ projet-racine/
                 <tbody>
                     <tr>
                         <td><code>utilisateur</code></td>
-                        <td>Stocke les informations de chaque étudiant</td>
+                        <td>Stocke les informations personnelles de chaque étudiant</td>
                     </tr>
                     <tr>
-                        <td><code>competence</code></td>
+                        <td><code>matière</code></td>
                         <td>Liste des matières et compétences disponibles</td>
                     </tr>
                     <tr>
@@ -329,7 +327,7 @@ projet-racine/
                         <td>Créneaux horaires de chaque utilisateur</td>
                     </tr>
                     <tr>
-                        <td><code>offre_mentorat</code></td>
+                        <td><code>offres</code></td>
                         <td>Offres et demandes de mentorat publiées</td>
                     </tr>
                     <tr>
@@ -342,7 +340,7 @@ projet-racine/
                     </tr>
                     <tr>
                         <td><code>message</code></td>
-                        <td>Messages échangés dans les conversations</td>
+                        <td>Messages échangés dans les conversations et entre les utilisateurs</td>
                     </tr>
                 </tbody>
             </table>
