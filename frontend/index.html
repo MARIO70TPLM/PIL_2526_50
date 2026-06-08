@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>IFRI MentorLink | Plateforme de mentorat</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <nav class="navbar-custom">
+    <div class="nav-container">
+        <div class="logo">IFRI<span>_</span>MentorLink</div>
+        <div class="nav-links" id="navLinks">
+            <a href="#" onclick="showPage('home')">Accueil</a>
+            <a href="#" onclick="showPage('about')">À propos</a>
+            <a href="#" onclick="showPage('howitworks')">Fonctionnement</a>
+            <a href="#" onclick="showPage('faq')">FAQ</a>
+            <a href="#" onclick="showPage('contact')">Contact</a>
+            <a href="#" onclick="showPage('matching')">Matching</a>
+            <a href="#" onclick="showPage('messenger')">Messages</a>
+        </div>
+        <div class="nav-actions">
+            <button id="darkModeToggle" class="theme-toggle"><i class="bi bi-moon-fill"></i></button>
+            <button class="btn btn-outline" onclick="showPage('login')">Connexion</button>
+            <button class="btn btn-accent" onclick="showPage('register')">Inscription</button>
+        </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <i class="bi bi-list"></i>
+        </div>
+    </div>
+</nav>
+
+<!-- ==================== TOUTES LES PAGES ==================== -->
+
+<!-- PAGE ACCUEIL -->
+<div id="page-home" class="page active">
+    <div class="hero">
+        <div class="hero-badge">🎓 Plateforme exclusive à l'IFRI</div>
+        <h1>Apprennons mieux,<br><em>Tous ensemble.</em></h1>
+        <p>Connectez-vous avec des mentors expérimentés et des collègues passionnés. IFRI_MentorLink facilite le partage de connaissances au sein de l'IFRI pour une réussite collective.</p>
+        <div class="hero-actions">
+            <button class="btn btn-accent btn-lg" onclick="showPage('register')">Commencer</button>
+            <button class="btn btn-outline btn-lg" onclick="showPage('matching')">Voir les annonces</button>
+        </div>
+        <div class="stats">
+            <div class="stat"><div class="stat-num">120+</div><div class="stat-label">Étudiants Actifs</div></div>
+            <div class="stat"><div class="stat-num">85%</div><div class="stat-label">Taux de Satisfaction</div></div>
+            <div class="stat"><div class="stat-num">5</div><div class="stat-label">Fillières de l'IFRI</div></div>
+            <div class="stat"><div class="stat-num">24/7</div><div class="stat-label">Accès Plateforme</div></div>
+        </div>
+    </div>
+    <div class="features">
+        <div class="feature-card"><div class="feature-icon">🤝</div><h3>Matching intelligent</h3><p>Algorithme avancé pour trouver les meilleurs binômes</p></div>
+        <div class="feature-card"><div class="feature-icon">💬</div><h3>Messagerie intégrée</h3><p>Discutez en temps réel avec vos mentors</p></div>
+        <div class="feature-card"><div class="feature-icon">📋</div><h3>Offres & demandes</h3><p>Publiez et trouvez l'aide dont vous avez besoin</p></div>
+        <div class="feature-card"><div class="feature-icon">🔒</div><h3>Sécurisé & confidentiel</h3><p>Données protégées, accès sécurisé</p></div>
+    </div>
+</div>
+
+<!-- PAGE À PROPOS -->
+<div id="page-about" class="page">
+    <div class="container-custom">
+        <div class="page-header"><h1>À propos de IFRI_MentorLink</h1><p>Une plateforme dédiée à l'excellence académique à l'IFRI</p></div>
+        <div class="about-grid">
+            <div class="about-card"><i class="bi bi-mortarboard"></i><h3>Notre Mission</h3><p>Faciliter le partage de connaissances entre étudiants pour une réussite collective</p></div>
+            <div class="about-card"><i class="bi bi-eye"></i><h3>Notre Vision</h3><p>à IFRI, nous batissons l'excellence.</p></div>
+            <div class="about-card"><i class="bi bi-heart"></i><h3>Nos Valeurs</h3><p>Entraide, Excellence, Innovation, Intégrité</p></div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE COMMENT ÇA MARCHE -->
+<div id="page-howitworks" class="page">
+    <div class="container-custom">
+        <div class="page-header"><h1>Comment ça marche ?</h1><p>4 étapes simples pour réussir ensemble</p></div>
+        <div class="steps-grid">
+            <div class="step"><div class="step-num">1</div><h3>Créez votre profil</h3><p>Indiquez vos matières fortes, vos lacunes et disponibilités</p></div>
+            <div class="step"><div class="step-num">2</div><h3>Recevez des matchs</h3><p>L'algorithme vous propose les meilleurs correspondants</p></div>
+            <div class="step"><div class="step-num">3</div><h3>Connectez-vous</h3><p>Discutez via notre messagerie intégrée</p></div>
+            <div class="step"><div class="step-num">4</div><h3>Progressez</h3><p>Atteignez vos objectifs académiques ensemble</p></div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE FAQ -->
+<div id="page-faq" class="page">
+    <div class="container-custom">
+        <div class="page-header"><h1>Besoin de plus de détails ?</h1><p>Tout ce que vous devez savoir</p></div>
+        <div class="faq-list">
+            <div class="faq-item"><div class="faq-question">Comment être sûr que mon mentor est compétent ?</div><div class="faq-answer">Tous les mentors sont vérifiés via leur parcours académique à l'IFRI.</div></div>
+            <div class="faq-item"><div class="faq-question">La plateforme est-elle gratuite ?</div><div class="faq-answer">Oui, IFRI_MentorLink est entièrement gratuit pour tous les étudiants IFRI.</div></div>
+            <div class="faq-item"><div class="faq-question">Puis-je être à la fois mentor et mentoré ?</div><div class="faq-answer">Absolument ! Chacun a des forces et des axes d'amélioration.</div></div>
+            <div class="faq-item"><div class="faq-question">Comment sont calculés les scores de compatibilité ?</div><div class="faq-answer">Basé sur vos matières, disponibilités et préférences.</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE CONTACT -->
+<div id="page-contact" class="page">
+    <div class="container-custom">
+        <div class="page-header"><h1>Contactez-nous</h1><p>Notre équipe vous répond dans les 24h</p></div>
+        <div class="contact-wrapper">
+            <div class="contact-info"><i class="bi bi-envelope"></i><h3>Email</h3><p>contact@ifri.uac.bj</p><i class="bi bi-telephone"></i><h3>Téléphone</h3><p>+229 01 55028070/53973060</p><i class="bi bi-geo-alt"></i><h3>Adresse</h3><p>01 BP 526 Cotonou-Bénin. Site web: https://www.ifri.uac.bj</p></div>
+            <form class="contact-form" id="contactForm"><input type="text" placeholder="Votre nom" required><input type="email" placeholder="Votre email" required><textarea rows="4" placeholder="Votre message"></textarea><button type="submit" class="btn btn-accent">Envoyer <i class="bi bi-send"></i></button></form>
+        </div>
+    </div>
+</div>
+
+<!-- PAGE CONNEXION -->
+<div id="page-login" class="page">
+    <div class="auth-container"><div class="auth-card"><h2>Connexion</h2><p class="subtitle">Bon retour sur IFRI_MentorLink</p>
+        <form id="loginForm"><div class="form-group"><label>Email ou téléphone</label><input type="text" placeholder="exemple@ifri.edu" required></div>
+        <div class="form-group"><label>Mot de passe</label><input type="password" placeholder="••••••••" required></div>
+        <div class="forgot-link"><a href="#" onclick="showPage('forgot')">Mot de passe oublié ?</a></div>
+        <button type="submit" class="btn btn-accent btn-full">Se connecter</button>
+        <div class="auth-footer">Pas encore de compte ? <a href="#" onclick="showPage('register')">S'inscrire</a></div></form>
+    </div></div>
+</div>
+
+<!-- PAGE INSCRIPTION -->
+<div id="page-register" class="page">
+    <div class="auth-container"><div class="auth-card"><h2>Créer un compte</h2><p class="subtitle">Rejoignez la communauté MentorLink</p>
+        <form id="registerForm"><div class="form-row"><div class="form-group"><label>Nom</label><input type="text" id="regNom" required></div><div class="form-group"><label>Prénom</label><input type="text" id="regPrenom" required></div></div>
+        <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="prenom.nom@ifri.edu" required></div>
+        <div class="form-group"><label>Téléphone</label><input type="tel" id="regTel" placeholder="+229 XX XX XX XX"></div>
+        <div class="form-row"><div class="form-group"><label>Filière</label><select id="regFiliere"><option>Génie Logiciel (GL)</option><option>Intelligence Artificielle (IA)</option><option>Sécurité informatique (SI)</option><option>SE-iOT</option><option>Internet et multimédia (IM)</option></select></div>
+        <div class="form-group"><label>Niveau</label><select id="regNiveau"><option>L1</option><option>L2</option><option>L3</option><option>Master 1</option><option>Master 2</option></select></div></div>
+        <div class="form-group"><label>Mot de passe</label><input type="password" id="regPassword" required></div>
+        <button type="submit" class="btn btn-accent btn-full">Créer mon compte</button>
+        <div class="auth-footer">Déjà inscrit ? <a href="#" onclick="showPage('login')">Se connecter</a></div></form>
+    </div></div>
+</div>
+
+<!-- PAGE MOT DE PASSE OUBLIÉ -->
+<div id="page-forgot" class="page">
+    <div class="auth-container"><div class="auth-card"><h2>Mot de passe oublié</h2><p class="subtitle">Entrez votre email pour réinitialiser</p>
+        <form id="forgotForm"><div class="form-group"><label>Email</label><input type="email" placeholder="votre@email.ifri.edu" required></div>
+        <button type="submit" class="btn btn-accent btn-full">Envoyer le lien</button>
+        <div class="auth-footer"><a href="#" onclick="showPage('login')">Retour à la connexion</a></div></form>
+    </div></div>
+</div>
+
+<!-- PAGE RÉINITIALISATION -->
+<div id="page-reset" class="page">
+    <div class="auth-container"><div class="auth-card"><h2>Réinitialisation</h2><p class="subtitle">Nouveau mot de passe</p>
+        <form id="resetForm"><div class="form-group"><label>Nouveau mot de passe</label><input type="password" required></div><div class="form-group"><label>Confirmer</label><input type="password" required></div>
+        <button type="submit" class="btn btn-accent btn-full">Réinitialiser</button></form>
+    </div></div>
+</div>
+
+<!-- PAGE TABLEAU DE BORD -->
+<div id="page-dashboard" class="page">
+    <div class="dashboard-layout">
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-profile"><div class="avatar" id="sidebarAvatar">KA</div><div class="sidebar-profile-info"><h4 id="sidebarName">DAHA Mariano</h4><span id="sidebarInfo">L1 · IM</span></div></div>
+            <ul class="sidebar-menu">
+                <li><a href="#" onclick="showDashboardPage('dashboard')" class="active" data-dash="dashboard"><i class="bi bi-speedometer2"></i> Tableau de bord</a></li>
+                <li><a href="#" onclick="showDashboardPage('profile')" data-dash="profile"><i class="bi bi-person"></i> Mon profil</a></li>
+                <li><a href="#" onclick="showDashboardPage('editprofile')" data-dash="editprofile"><i class="bi bi-pencil-square"></i> Modifier profil</a></li>
+                <li><a href="#" onclick="showDashboardPage('competences')" data-dash="competences"><i class="bi bi-star"></i> Mes compétences</a></li>
+                <li><a href="#" onclick="showDashboardPage('disponibilites')" data-dash="disponibilites"><i class="bi bi-calendar-clock"></i> Disponibilités</a></li>
+                <li><a href="#" onclick="showDashboardPage('photo')" data-dash="photo"><i class="bi bi-camera"></i> Photo de profil</a></li>
+                <li><a href="#" onclick="showDashboardPage('settings')" data-dash="settings"><i class="bi bi-gear"></i> Paramètres</a></li>
+                <li><hr><li><a href="#" onclick="showPage('home')"><i class="bi bi-box-arrow-right"></i> Déconnexion</a></li>
+            </ul>
+        </aside>
+        <main class="dashboard-main" id="dashboardContent"></main>
+    </div>
+</div>
+
+<!-- PAGE MATCHING -->
+<div id="page-matching" class="page">
+    <div class="dashboard-layout">
+        <aside class="sidebar"><div class="sidebar-profile"><div class="avatar">KA</div><div><h4>DAHA Mariano</h4><span>L1 · IM</span></div></div>
+        <ul class="sidebar-menu"><li><a href="#" onclick="showPage('dashboard')"><i class="bi bi-speedometer2"></i> Dashboard</a></li><li><a href="#" class="active"><i class="bi bi-people"></i> Matching</a></li><li><a href="#" onclick="showPage('messenger')"><i class="bi bi-chat"></i> Messages</a></li><li><a href="#" onclick="showPage('profile')"><i class="bi bi-person"></i> Profil</a></li></ul></aside>
+        <main class="dashboard-main" id="matchingContent"></main>
+    </div>
+</div>
+
+<!-- PAGE MESSAGERIE -->
+<div id="page-messenger" class="page">
+    <div class="messenger-container">
+        <div class="conversations-list" id="conversationsList"></div>
+        <div class="chat-window" id="chatWindow"></div>
+    </div>
+</div>
+
+<!-- PAGE PROFIL (vue publique) -->
+<div id="page-profile" class="page">
+    <div class="container-custom" id="publicProfileContent"></div>
+</div>
+
+<!-- PAGE ERREUR 404 -->
+<div id="page-404" class="page">
+    <div class="error-container"><i class="bi bi-exclamation-triangle"></i><h1>404</h1><p>Page non trouvée</p><button class="btn btn-accent" onclick="showPage('home')">Retour à l'accueil</button></div>
+</div>
+
+<!-- PAGE ACCÈS REFUSÉ -->
+<div id="page-403" class="page">
+    <div class="error-container"><i class="bi bi-shield-lock"></i><h1>Accès refusé</h1><p>Vous n'avez pas les droits nécessaires</p><button class="btn btn-accent" onclick="showPage('home')">Retour</button></div>
+</div>
+
+<!-- PAGE ERREUR SERVEUR -->
+<div id="page-500" class="page">
+    <div class="error-container"><i class="bi bi-server"></i><h1>500</h1><p>Erreur serveur</p><button class="btn btn-accent" onclick="showPage('home')">Réessayer</button></div>
+</div>
+
+<!-- ==================== MODULES JS ====================
+     Ordre important : theme et navigation en premier,
+     puis les modules métier qui appellent leurs fonctions. -->
+<script src="js/theme.js"></script>
+<script src="js/navigation.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/matching.js"></script>
+<script src="js/messenger.js"></script>
+<script src="js/profile.js"></script>
+
+</body>
+</html>
