@@ -28,14 +28,6 @@ function loadMatchingContent() {
                         <span class="match-tag">Score: 92%</span>
                     </div>
                 </div>
-Matching
-Messages
-Créer un compte
-
-Rejoignez la communauté MentorLink
-Nom
-Prénom
-Email
                 <button class="btn btn-accent" onclick="showMatchDetail(1)">Voir détail</button>
             </div>
             <div class="match-card">
@@ -59,7 +51,6 @@ Email
                     <div class="match-name">Jean K. (L2 SI)</div>
                     <div class="match-meta">Match du 15/05/2026 · Score: 68%</div>
                 </div>
-                <span class="score-badge">Terminé</span>
             </div>
         </div>
 
@@ -80,18 +71,70 @@ Email
             <div class="form-group">
                 <select>
                     <option>Sélectionner matière</option>
+                    <option>Logique</option>
+                    <option>Algèbre relationnel</option>
                     <option>Algorithmique</option>
-                    <option>Python</option>
+                    <option>Programmation Python</option>
+                    <option>Architecture et réseaux</option>
+                    <option>Suites et séries numériques</option>
+                    <option>Dévéloppement web </option>
+                    <option>TEEO</option>
+                    <option>Projet intégrateur</option>
+                    <option>Analyse</option>
+                    <option>statistiques inférentielles</option>
+                    <option>Equations différentielles</option>
+                    <option>Language C</option>
+                    <option>Anglais technique</option>
+                    <option>Outils de base en informatique</option>
                 </select>
             </div>
-            <div class="form-group">
-                <textarea placeholder="Description..."></textarea>
+            <div class="form-group disponibilites">
+         <div class="form-group">
+                <select>
+                    <option>Mode de rencontre</option>
+                    <option>En ligne</option>
+                    <option>Présentiel</option>
+                </select>
             </div>
-            <button class="btn btn-accent">Publier</button>
-        </div>
-    `;
-}
+             <div class="form-group">
+            <select id="select-jour" onchange="afficherPlages()">
+                <option value="">Jour de disponibilité</option>
+                <option value="lundi">Lundi</option>
+                <option value="mardi">Mardi</option>
+                <option value="mercredi">Mercredi</option>
+                <option value="jeudi">Jeudi</option>
+                <option value="vendredi">Vendredi</option>
+                <option value="samedi">Samedi</option>
+                <option value="dimanche">Dimanche</option>
+            </select>
+            </div>
+
+            <div class="form-group" id="groupe-plage" style="display:none;">
+            <select id="select-plage">
+                <option value="">Plage horaire</option>
+                <option value="matin">Matin (08h – 12h)</option>
+                <option value="soir">Soir (17h – 21h)</option>
+            </select>
+            </div>
+                        <div class="form-group">
+                            <textarea placeholder="Description..."></textarea>
+                        </div>
+                        <button class="btn btn-accent">Publier</button>
+                    </div>
+                `;
+            }
 
 function showMatchDetail(matchId) {
     alert(`Détail du match #${matchId}\nScore de compatibilité: ${matchId === 1 ? '92%' : '78%'}\nBasé sur vos matières, disponibilités et objectifs communs.`);
+}
+function afficherPlages() {
+  const jour = document.getElementById('select-jour').value;
+  const groupePlage = document.getElementById('groupe-plage');
+
+  if (jour !== "") {
+    groupePlage.style.display = "block";
+  } else {
+    groupePlage.style.display = "none";
+    document.getElementById('select-plage').value = "";
+  }
 }
