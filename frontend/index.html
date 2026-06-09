@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IFRI_MentorLink — Maquette</title>
+  <link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- =========================================
+       NAVIGATION PAR ONGLETS
+       ========================================= -->
+  <nav class="nav-tabs" id="nav" role="tablist" aria-label="Écrans de la maquette">
+    <button class="tab-btn active" onclick="showTab('inscription')"   aria-selected="true"  role="tab">📝 Inscription</button>
+    <button class="tab-btn"        onclick="showTab('dashboard')"     aria-selected="false" role="tab">📊 Tableau de bord</button>
+    <button class="tab-btn"        onclick="showTab('matching')"      aria-selected="false" role="tab">🤝 Matching</button>
+    <button class="tab-btn"        onclick="showTab('messagerie')"    aria-selected="false" role="tab">💬 Messagerie</button>
+    <button class="tab-btn"        onclick="showTab('offres')"        aria-selected="false" role="tab">💡 Offres &amp; demandes</button>
+  </nav>
+
+
+  <!-- =========================================
+       ÉCRAN 1 : INSCRIPTION (étape 2/3)
+       ========================================= -->
+  <section class="screen active" id="screen-inscription" role="tabpanel" aria-label="Inscription">
+    <div class="full-layout">
+      <div class="auth-card">
+
+        <!-- Logo -->
+        <div class="auth-logo">
+          <span class="logo-dot"></span>
+          IFRI_MentorLink
+        </div>
+
+        <!-- Indicateur d'étapes -->
+        <div class="steps-row" aria-label="Étape 2 sur 3">
+          <div class="step-item">
+            <div class="step-circle step-done" aria-label="Étape 1 : terminée">✓</div>
+          </div>
+          <div class="step-line done"></div>
+          <div class="step-item">
+            <div class="step-circle step-active" aria-label="Étape 2 : en cours">2</div>
+          </div>
+          <div class="step-line"></div>
+          <div class="step-item">
+            <div class="step-circle step-todo" aria-label="Étape 3 : à venir">3</div>
+          </div>
+        </div>
+
+        <h1 class="auth-title">Construis ton profil</h1>
+        <p class="auth-subtitle">Étape 2 sur 3 — Filière, compétences et disponibilités</p>
+
+        <!-- Filière & Niveau -->
+        <div class="form-grid">
+          <div>
+            <label class="label-sm" for="filiere">Filière</label>
+            <select class="select-field" id="filiere" name="filiere">
+              <option value="IA">Intelligence Artificielle</option>
+              <option value="GL">Génie Logiciel</option>
+              <option value="SI">Systèmes d'Information</option>
+              <option value="SE">SE &amp; IoT</option>
+              <option value="IM">Infographie &amp; Multimédia</option>
+            </select>
+          </div>
+          <div>
+            <label class="label-sm" for="niveau">Niveau d'études</label>
+            <select class="select-field" id="niveau" name="niveau">
+              <option value="L1">Licence 1</option>
+              <option value="L2">Licence 2</option>
+              <option value="L3">Licence 3</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Points forts -->
+        <label class="label-sm">Mes points forts (matières maîtrisées)</label>
+        <div class="checkbox-group" id="strengths" role="group" aria-label="Sélectionner les points forts">
+          <div class="checkbox-item checked" onclick="toggleCheck(this)" role="checkbox" aria-checked="true"  tabindex="0">Algorithmique</div>
+          <div class="checkbox-item checked" onclick="toggleCheck(this)" role="checkbox" aria-checked="true"  tabindex="0">Python</div>
+          <div class="checkbox-item"         onclick="toggleCheck(this)" role="checkbox" aria-checked="false" tabindex="0">SQL</div>
+          <div class="checkbox-item"         onclick="toggleCheck(this)" role="checkbox" aria-checked="false" tabindex="0">HTML/CSS</div>
+          <div class="checkbox-item"         onclick="toggleCheck(this)" role="checkbox" aria-checked="false" tabindex="0">Réseaux</div>
+          <div class="checkbox-item"         onclick="toggleCheck(this)" role="checkbox" aria-checked="false" tabindex="0">Mathématiques</div>
+        </div>
+
+        <!-- Lacunes -->
+        <label class="label-sm">Mes lacunes (où j'ai besoin d'aide)</label>
+        <div class="checkbox-group" id="weaknesses" role="group" aria-label="Sélectionner les lacunes">
+          <div class="checkbox-item checked" onclick="toggleCheck(this)" role="checkbox" aria-checked="true"  tabindex="0">Bases de données</div>
+          <div class="checkbox-item"         onclick="toggleCheck(this)" role="checkbox" aria-checked="false" tabindex="0">Machine Learning</div>
+          <div class="checkbox-item"         onclick="toggleCheck(this)" role="checkbox" aria-checked="false" tabindex="0">JavaScript</div>
+          <div class="checkbox-item checked" onclick="toggleCheck(this)" role="checkbox" aria-checked="true"  tabindex="0">Statistiques</div>
+        </div>
+
+        <!-- Disponibilités -->
+        <label class="label-sm">Disponibilités habituelles</label>
+        <div class="checkbox-group" id="availabilities" role="group" aria-label="Sélectionner les disponibilités">
+          <div class="checkbox-item checked" onclick="toggleCheck(this)" role="checkbox" aria-checked="true"  tabindex="0">Lun. soir</div>
+          <div class="checkbox-item checked" onclick="toggleCheck(this)" role="checkbox" aria-checked="true"  tabindex="0">Mer. après-midi</div>
+          <div class="checkbox-item"         onclick="toggleCheck(this)" role="checkbox" aria-checked="false" tabindex="0">Ven. soir</div>
+          <div class="checkbox-item"         onclick="toggleCheck(this)" role="checkbox" aria-checked="false" tabindex="0">Week-end</div>
+        </div>
+
+        <!-- Actions -->
+        <div class="btn-row">
+          <button class="btn-secondary">← Retour</button>
+          <button class="btn-primary" style="flex:1">Continuer →</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================
+       ÉCRAN 2 : TABLEAU DE BORD
+       ========================================= -->
+  <section class="screen" id="screen-dashboard" role="tabpanel" aria-label="Tableau de bord">
+    <div class="app-frame">
+
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="logo"><span class="logo-dot"></span> IFRI_MentorLink</div>
+        <div class="topbar-actions">
+          <span style="font-size:18px; color:#888780; cursor:pointer;" title="Notifications">🔔</span>
+          <span class="badge-notif">3</span>
+          <div class="avatar-sm">KA</div>
+        </div>
+      </header>
+
+      <!-- Corps -->
+      <div class="sidebar-layout">
+
+        <!-- Sidebar -->
+        <nav class="sidebar" aria-label="Menu principal">
+          <a class="sidebar-item active" href="#" onclick="return false">📊 Tableau de bord</a>
+          <a class="sidebar-item"        href="#" onclick="showTab('matching');   return false">🤝 Matching</a>
+          <a class="sidebar-item"        href="#" onclick="showTab('messagerie'); return false">💬 Messages</a>
+          <a class="sidebar-item"        href="#" onclick="showTab('offres');     return false">💡 Offres &amp; demandes</a>
+          <a class="sidebar-item"        href="#" onclick="return false">👤 Mon profil</a>
+          <a class="sidebar-item"        href="#" onclick="return false">⚙️ Paramètres</a>
+        </nav>
+
+        <!-- Contenu -->
+        <main class="main-content">
+          <h2 style="font-size:16px; font-weight:500; color:#1a1a18; margin-bottom:16px;">Bonjour, Kofi 👋</h2>
+
+          <!-- Statistiques -->
+          <div class="stat-grid">
+            <div class="stat-card">
+              <div class="stat-num text-green">4</div>
+              <div class="stat-label">Correspondances suggérées</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num text-blue">2</div>
+              <div class="stat-label">Sessions en cours</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-num" style="color:#854f0b">7</div>
+              <div class="stat-label">Messages non lus</div>
+            </div>
+          </div>
+
+          <!-- Double colonne -->
+          <div class="two-col">
+
+            <!-- Colonne gauche : mentors suggérés -->
+            <div>
+              <!-- Mentor 1 -->
+              <div class="card">
+                <div class="section-title">Mentors suggérés</div>
+                <div class="user-row">
+                  <div class="avatar av-teal">AM</div>
+                  <div>
+                    <div class="user-name">Afi Mensah</div>
+                    <div class="user-meta">GL · Licence 3</div>
+                  </div>
+                </div>
+                <div class="tags-row">
+                  <span class="tag tag-teal">SQL</span>
+                  <span class="tag tag-teal">Bases de données</span>
+                </div>
+                <div class="score-bar"><div class="score-fill" style="width:88%"></div></div>
+                <div class="score-label">
+                  <span>Compatibilité</span>
+                  <span class="score-value">88%</span>
+                </div>
+                <div class="btn-row">
+                  <button class="btn-primary"   style="font-size:12px; padding:5px 12px">Contacter</button>
+                  <button class="btn-secondary" style="font-size:12px; padding:5px 12px">Voir profil</button>
+                </div>
+              </div>
+
+              <!-- Mentor 2 -->
+              <div class="card">
+                <div class="user-row">
+                  <div class="avatar av-blue">SB</div>
+                  <div>
+                    <div class="user-name">Sékou Bah</div>
+                    <div class="user-meta">IA · Licence 3</div>
+                  </div>
+                </div>
+                <div class="tags-row">
+                  <span class="tag tag-blue">Statistiques</span>
+                  <span class="tag tag-blue">Python</span>
+                </div>
+                <div class="score-bar"><div class="score-fill" style="width:74%"></div></div>
+                <div class="score-label">
+                  <span>Compatibilité</span>
+                  <span class="score-value">74%</span>
+                </div>
+                <div class="btn-row">
+                  <button class="btn-primary"   style="font-size:12px; padding:5px 12px">Contacter</button>
+                  <button class="btn-secondary" style="font-size:12px; padding:5px 12px">Voir profil</button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Colonne droite : activité + prochaine session -->
+            <div>
+              <!-- Activité récente -->
+              <div class="card">
+                <div class="section-title">Activité récente</div>
+                <div style="display:flex; flex-direction:column; gap:10px;">
+
+                  <div class="flex-center" style="gap:10px; font-size:13px;">
+                    <span style="font-size:16px;">💬</span>
+                    <div>
+                      <span class="fw-medium">Afi Mensah</span> vous a répondu
+                      <div style="font-size:11px; color:#888780;">Il y a 10 min</div>
+                    </div>
+                    <span class="notif-dot" style="margin-left:auto;"></span>
+                  </div>
+
+                  <hr class="divider" style="margin:2px 0;">
+
+                  <div class="flex-center" style="gap:10px; font-size:13px;">
+                    <span style="font-size:16px;">🤝</span>
+                    <div>
+                      <span class="fw-medium">Nouveau match</span> trouvé
+                      <div style="font-size:11px; color:#888780;">Il y a 1h</div>
+                    </div>
+                    <span class="notif-dot" style="margin-left:auto;"></span>
+                  </div>
+
+                  <hr class="divider" style="margin:2px 0;">
+
+                  <div class="flex-center" style="gap:10px; font-size:13px;">
+                    <span style="font-size:16px;">⭐</span>
+                    <div>
+                      <span class="fw-medium">Session terminée</span> avec Sékou
+                      <div style="font-size:11px; color:#888780;">Hier, 18h30</div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+
+              <!-- Prochaine session -->
+              <div class="card">
+                <div class="section-title">Prochaine session</div>
+                <div class="flex-center" style="gap:12px;">
+                  <div style="background:#e6f1fb; border-radius:8px; padding:10px; text-align:center; min-width:46px;">
+                    <div style="font-size:18px; font-weight:600; color:#185fa5;">10</div>
+                    <div style="font-size:10px; color:#185fa5;">Juin</div>
+                  </div>
+                  <div>
+                    <div style="font-size:13px; font-weight:500;">SQL avec Afi Mensah</div>
+                    <div style="font-size:12px; color:#888780; margin-top:2px;">🕔 17h00 — En ligne</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.two-col -->
+        </main>
+
+      </div><!-- /.sidebar-layout -->
+    </div><!-- /.app-frame -->
+  </section>
+
+
+  <!-- =========================================
+       ÉCRAN 3 : MATCHING
+       ========================================= -->
+  <section class="screen" id="screen-matching" role="tabpanel" aria-label="Matching">
+    <div class="app-frame">
+
+      <header class="topbar">
+        <div class="logo"><span class="logo-dot"></span> IFRI_MentorLink</div>
+        <div class="topbar-actions"><div class="avatar-sm">KA</div></div>
+      </header>
+
+      <div class="sidebar-layout">
+        <nav class="sidebar" aria-label="Menu principal">
+          <a class="sidebar-item"        href="#" onclick="showTab('dashboard');  return false">📊 Tableau de bord</a>
+          <a class="sidebar-item active" href="#" onclick="return false">🤝 Matching</a>
+          <a class="sidebar-item"        href="#" onclick="showTab('messagerie'); return false">💬 Messages</a>
+          <a class="sidebar-item"        href="#" onclick="showTab('offres');     return false">💡 Offres &amp; demandes</a>
+          <a class="sidebar-item"        href="#" onclick="return false">👤 Mon profil</a>
+        </nav>
+
+        <main class="main-content">
+          <h2 style="font-size:16px; font-weight:500; color:#1a1a18; margin-bottom:4px;">Correspondances suggérées</h2>
+          <p style="font-size:13px; color:#888780; margin-bottom:16px;">Basées sur tes lacunes · Disponibilités · Filière</p>
+
+          <!-- Filtres -->
+          <div class="filter-row" role="group" aria-label="Filtrer les résultats">
+            <button class="filter-chip active">Tous</button>
+            <button class="filter-chip" onclick="toggleFilter(this)">Mentors</button>
+            <button class="filter-chip" onclick="toggleFilter(this)">Mentorés</button>
+            <button class="filter-chip" onclick="toggleFilter(this)">SQL</button>
+            <button class="filter-chip" onclick="toggleFilter(this)">Statistiques</button>
+            <button class="filter-chip" onclick="toggleFilter(this)">Mer. après-midi</button>
+          </div>
+
+          <!-- Match 1 — 92% -->
+          <article class="match-card">
+            <span class="match-score-badge match-score-high">⭐ 92%</span>
+            <div class="user-row" style="margin-bottom:8px;">
+              <div class="avatar av-teal" style="width:44px;height:44px;font-size:14px;">AM</div>
+              <div>
+                <div class="user-name">Afi Mensah</div>
+                <div class="user-meta">Génie Logiciel · Licence 3 · IFRI</div>
+              </div>
+            </div>
+            <div class="match-compatible">
+              <strong>Peut t'aider en :</strong>
+              <div class="tags-row">
+                <span class="tag tag-teal">SQL</span>
+                <span class="tag tag-teal">Bases de données</span>
+                <span class="tag tag-teal">PostgreSQL</span>
+              </div>
+            </div>
+            <div class="match-compatible mt-8">
+              <strong>Disponibilités communes :</strong>
+              <div class="tags-row">
+                <span class="tag tag-gray">Mer. 14h–18h</span>
+                <span class="tag tag-gray">Ven. soir</span>
+              </div>
+            </div>
+            <div class="match-footer">
+              <span class="format-info">Format : En ligne ou présentiel</span>
+              <div class="btn-row" style="margin:0; gap:6px;">
+                <button class="btn-secondary" style="font-size:12px; padding:5px 10px;">Profil</button>
+                <button class="btn-primary"   style="font-size:12px; padding:5px 12px;">Contacter</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Match 2 — 74% -->
+          <article class="match-card">
+            <span class="match-score-badge match-score-medium">74%</span>
+            <div class="user-row" style="margin-bottom:8px;">
+              <div class="avatar av-blue" style="width:44px;height:44px;font-size:14px;">SB</div>
+              <div>
+                <div class="user-name">Sékou Bah</div>
+                <div class="user-meta">Intelligence Artificielle · Licence 3</div>
+              </div>
+            </div>
+            <div class="match-compatible">
+              <strong>Peut t'aider en :</strong>
+              <div class="tags-row">
+                <span class="tag tag-blue">Statistiques</span>
+                <span class="tag tag-blue">Python avancé</span>
+              </div>
+            </div>
+            <div class="match-compatible mt-8">
+              <strong>Disponibilités communes :</strong>
+              <div class="tags-row">
+                <span class="tag tag-gray">Lun. soir</span>
+              </div>
+            </div>
+            <div class="match-footer">
+              <span class="format-info">Format : En ligne uniquement</span>
+              <div class="btn-row" style="margin:0; gap:6px;">
+                <button class="btn-secondary" style="font-size:12px; padding:5px 10px;">Profil</button>
+                <button class="btn-primary"   style="font-size:12px; padding:5px 12px;">Contacter</button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Match 3 — 61% -->
+          <article class="match-card">
+            <span class="match-score-badge match-score-low">61%</span>
+            <div class="user-row" style="margin-bottom:8px;">
+              <div class="avatar av-coral" style="width:44px;height:44px;font-size:14px;">FD</div>
+              <div>
+                <div class="user-name">Fatou Diallo</div>
+                <div class="user-meta">Systèmes d'Information · Licence 2</div>
+              </div>
+            </div>
+            <div class="match-compatible">
+              <strong>Cherche aussi de l'aide en :</strong>
+              <div class="tags-row">
+                <span class="tag tag-coral">HTML/CSS</span>
+                <span class="tag tag-coral">JavaScript</span>
+              </div>
+            </div>
+            <div class="match-compatible mt-8">
+              <strong>Disponibilités communes :</strong>
+              <div class="tags-row">
+                <span class="tag tag-gray">Mer. après-midi</span>
+                <span class="tag tag-gray">Week-end</span>
+              </div>
+            </div>
+            <div class="match-footer">
+              <span class="format-info">Format : Présentiel</span>
+              <div class="btn-row" style="margin:0; gap:6px;">
+                <button class="btn-secondary" style="font-size:12px; padding:5px 10px;">Profil</button>
+                <button class="btn-primary"   style="font-size:12px; padding:5px 12px;">Contacter</button>
+              </div>
+            </div>
+          </article>
+
+        </main>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================
+       ÉCRAN 4 : MESSAGERIE
+       ========================================= -->
+  <section class="screen" id="screen-messagerie" role="tabpanel" aria-label="Messagerie">
+    <div class="app-frame">
+
+      <header class="topbar">
+        <div class="logo"><span class="logo-dot"></span> IFRI_MentorLink</div>
+        <div class="topbar-actions"><div class="avatar-sm">KA</div></div>
+      </header>
+
+      <div class="sidebar-layout">
+        <nav class="sidebar" aria-label="Menu principal">
+          <a class="sidebar-item"        href="#" onclick="showTab('dashboard');  return false">📊 Tableau de bord</a>
+          <a class="sidebar-item"        href="#" onclick="showTab('matching');   return false">🤝 Matching</a>
+          <a class="sidebar-item active" href="#" onclick="return false">💬 Messages</a>
+          <a class="sidebar-item"        href="#" onclick="showTab('offres');     return false">💡 Offres &amp; demandes</a>
+          <a class="sidebar-item"        href="#" onclick="return false">👤 Mon profil</a>
+        </nav>
+
+        <!-- Zone de chat -->
+        <div class="chat-wrapper">
+
+          <!-- Liste des conversations -->
+          <aside class="chat-list" aria-label="Conversations">
+            <div class="chat-list-header">Conversations</div>
+
+            <div class="chat-item active" onclick="selectConv(this)">
+              <div class="avatar av-teal" style="width:34px;height:34px;font-size:12px;flex-shrink:0;">AM</div>
+              <div class="chat-item-info">
+                <div class="chat-item-name">
+                  Afi Mensah
+                  <span class="badge-notif" style="font-size:9px;width:15px;height:15px;">2</span>
+                </div>
+                <div class="chat-preview">Ok, mercredi 17h c'est bon...</div>
+              </div>
+            </div>
+
+            <div class="chat-item" onclick="selectConv(this)">
+              <div class="avatar av-blue" style="width:34px;height:34px;font-size:12px;flex-shrink:0;">SB</div>
+              <div class="chat-item-info">
+                <div class="chat-item-name">Sékou Bah</div>
+                <div class="chat-preview">Tu as eu les résultats du TD ?</div>
+              </div>
+            </div>
+
+            <div class="chat-item" onclick="selectConv(this)">
+              <div class="avatar av-purple" style="width:34px;height:34px;font-size:12px;flex-shrink:0;">CK</div>
+              <div class="chat-item-info">
+                <div class="chat-item-name">Chidi Kone</div>
+                <div class="chat-preview">Merci pour la session !</div>
+              </div>
+            </div>
+          </aside>
+
+          <!-- Zone de messages -->
+          <div class="chat-main">
+
+            <!-- En-tête de la conversation -->
+            <div class="chat-header">
+              <div class="avatar av-teal" style="width:32px;height:32px;font-size:12px;">AM</div>
+              <div class="chat-header-info">
+                <div class="chat-header-name">Afi Mensah</div>
+                <div class="chat-header-status">
+                  <span class="online-dot"></span> En ligne
+                </div>
+              </div>
+              <div class="chat-header-actions">
+                <span style="font-size:18px; color:#888780; cursor:pointer;" title="Informations">ℹ️</span>
+              </div>
+            </div>
+
+            <!-- Messages -->
+            <div class="chat-messages" id="chat-messages" role="log" aria-live="polite" aria-label="Messages de la conversation">
+              <div class="msg msg-received">
+                Salut ! Tu veux qu'on fasse une session SQL ce mercredi ?
+                <div class="msg-time">14:20</div>
+              </div>
+              <div class="msg msg-sent">
+                Oui avec plaisir ! Tu es dispo à partir de quelle heure ?
+                <div class="msg-time">14:23</div>
+              </div>
+              <div class="msg msg-received">
+                Je suis libre à partir de 17h. On peut faire 17h–19h sur Google Meet ?
+                <div class="msg-time">14:25</div>
+              </div>
+              <div class="msg msg-sent">
+                C'est parfait pour moi ! Tu peux m'envoyer le lien ?
+                <div class="msg-time">14:26</div>
+              </div>
+              <div class="msg msg-received">
+                Ok, mercredi 17h c'est bon, je t'envoie le lien la veille 👍
+                <div class="msg-time">14:28</div>
+              </div>
+            </div>
+
+            <!-- Saisie -->
+            <div class="chat-input-row">
+              <input
+                type="text"
+                id="chat-input"
+                placeholder="Écrire un message..."
+                onkeydown="handleEnter(event)"
+                aria-label="Écrire un message"
+              />
+              <button class="send-btn" onclick="sendMessage()" aria-label="Envoyer">➤</button>
+            </div>
+
+          </div><!-- /.chat-main -->
+        </div><!-- /.chat-wrapper -->
+
+      </div><!-- /.sidebar-layout -->
+    </div><!-- /.app-frame -->
+  </section>
+
+
+  <!-- =========================================
+       ÉCRAN 5 : OFFRES & DEMANDES
+       ========================================= -->
+  <section class="screen" id="screen-offres" role="tabpanel" aria-label="Offres et demandes">
+    <div class="app-frame">
+
+      <header class="topbar">
+        <div class="logo"><span class="logo-dot"></span> IFRI_MentorLink</div>
+        <div class="topbar-actions">
+          <button class="btn-primary" style="font-size:12px; padding:5px 12px;">+ Publier</button>
+          <div class="avatar-sm">KA</div>
+        </div>
+      </header>
+
+      <div class="sidebar-layout">
+        <nav class="sidebar" aria-label="Menu principal">
+          <a class="sidebar-item"        href="#" onclick="showTab('dashboard');  return false">📊 Tableau de bord</a>
+          <a class="sidebar-item"        href="#" onclick="showTab('matching');   return false">🤝 Matching</a>
+          <a class="sidebar-item"        href="#" onclick="showTab('messagerie'); return false">💬 Messages</a>
+          <a class="sidebar-item active" href="#" onclick="return false">💡 Offres &amp; demandes</a>
+          <a class="sidebar-item"        href="#" onclick="return false">👤 Mon profil</a>
+        </nav>
+
+        <main class="main-content">
+
+          <!-- Filtres -->
+          <div class="filter-row" role="group" aria-label="Filtrer les annonces">
+            <button class="filter-chip active">Toutes</button>
+            <button class="filter-chip" onclick="toggleFilter(this)">Offres de mentorat</button>
+            <button class="filter-chip" onclick="toggleFilter(this)">Demandes d'aide</button>
+            <button class="filter-chip" onclick="toggleFilter(this)">En ligne</button>
+            <button class="filter-chip" onclick="toggleFilter(this)">Présentiel</button>
+          </div>
+
+          <!-- Offre 1 -->
+          <article class="offer-card">
+            <div class="offer-header">
+              <div>
+                <div class="offer-title">Offre : Mentorat en SQL &amp; bases de données</div>
+                <div class="offer-author">Publié il y a 2h par <strong>Afi Mensah</strong> · GL L3</div>
+              </div>
+              <span class="format-tag format-online">En ligne</span>
+            </div>
+            <div class="tags-row">
+              <span class="tag tag-teal">SQL</span>
+              <span class="tag tag-teal">PostgreSQL</span>
+              <span class="tag tag-teal">Modélisation BD</span>
+            </div>
+            <p class="offer-description">
+              Je propose des sessions de soutien sur SQL (requêtes, jointures, triggers) et la conception de bases de données relationnelles. Disponible mercredi et vendredi.
+            </p>
+            <div class="offer-footer">
+              <span class="info-item">🕐 Mer. &amp; Ven. soir</span>
+              <span class="info-item">✅ 2 réponses</span>
+              <button class="btn-primary" style="margin-left:auto; font-size:12px; padding:5px 12px;">Répondre</button>
+            </div>
+          </article>
+
+          <!-- Demande 2 (ma demande) -->
+          <article class="offer-card my-offer">
+            <span class="my-badge">Ma demande</span>
+            <div class="offer-header">
+              <div>
+                <div class="offer-title">Demande : Besoin d'aide en Statistiques</div>
+                <div class="offer-author">Publié hier par <strong>Toi</strong> · IA L2</div>
+              </div>
+              <span class="format-tag format-hybrid">Hybride</span>
+            </div>
+            <div class="tags-row">
+              <span class="tag tag-blue">Statistiques</span>
+              <span class="tag tag-blue">Probabilités</span>
+            </div>
+            <p class="offer-description">
+              Difficultés sur les tests d'hypothèses et la loi normale. Cherche quelqu'un pouvant m'expliquer les concepts de base et m'aider sur les exercices du cours.
+            </p>
+            <div class="offer-footer">
+              <span class="info-item">🕐 Lun. &amp; Mer. soir</span>
+              <span class="info-item highlight">✅ 3 offres reçues</span>
+              <button class="btn-secondary" style="margin-left:auto; font-size:12px; padding:5px 12px;">Voir réponses</button>
+            </div>
+          </article>
+
+          <!-- Demande 3 -->
+          <article class="offer-card">
+            <div class="offer-header">
+              <div>
+                <div class="offer-title">Demande : Aide en JavaScript / Frontend</div>
+                <div class="offer-author">Publié il y a 5h par <strong>Fatou Diallo</strong> · SI L2</div>
+              </div>
+              <span class="format-tag format-presential">Présentiel</span>
+            </div>
+            <div class="tags-row">
+              <span class="tag tag-coral">JavaScript</span>
+              <span class="tag tag-coral">DOM</span>
+              <span class="tag tag-coral">Events</span>
+            </div>
+            <p class="offer-description">
+              Je bloque sur la manipulation du DOM et les événements JS. Je cherche quelqu'un de patient pour m'expliquer avec des exemples concrets.
+            </p>
+            <div class="offer-footer">
+              <span class="info-item">🕐 Week-end</span>
+              <span class="info-item">✅ 1 réponse</span>
+              <button class="btn-primary" style="margin-left:auto; font-size:12px; padding:5px 12px;">Répondre</button>
+            </div>
+          </article>
+
+        </main>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
+  <script>
+    /* --- Navigation entre les onglets --- */
+    const tabMap = {
+      inscription : 0,
+      dashboard   : 1,
+      matching    : 2,
+      messagerie  : 3,
+      offres      : 4
+    };
+
+    function showTab(name) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('active');
+        b.setAttribute('aria-selected', 'false');
+      });
+
+      const screen = document.getElementById('screen-' + name);
+      const btn    = document.querySelectorAll('.tab-btn')[tabMap[name]];
+
+      if (screen) screen.classList.add('active');
+      if (btn)    { btn.classList.add('active'); btn.setAttribute('aria-selected', 'true'); }
+    }
+
+    /* --- Cases à cocher stylisées (inscription) --- */
+    function toggleCheck(el) {
+      const checked = el.classList.toggle('checked');
+      el.setAttribute('aria-checked', String(checked));
+    }
+
+    /* --- Filtres (matching / offres) --- */
+    function toggleFilter(el) {
+      const row = el.closest('.filter-row');
+      row.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    /* --- Sélection d'une conversation --- */
+    function selectConv(el) {
+      document.querySelectorAll('.chat-item').forEach(i => i.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    /* --- Envoi d'un message (messagerie) --- */
+    function sendMessage() {
+      const input = document.getElementById('chat-input');
+      const text  = input.value.trim();
+      if (!text) return;
+
+      const now     = new Date();
+      const time    = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
+      const msgDiv  = document.createElement('div');
+      msgDiv.className   = 'msg msg-sent';
+      msgDiv.innerHTML   = text + '<div class="msg-time">' + time + '</div>';
+
+      const container = document.getElementById('chat-messages');
+      container.appendChild(msgDiv);
+      container.scrollTop = container.scrollHeight;
+      input.value = '';
+    }
+
+    function handleEnter(event) {
+      if (event.key === 'Enter') sendMessage();
+    }
+  </script>
+
+</body>
+</html>
