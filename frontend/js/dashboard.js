@@ -20,7 +20,7 @@ function loadDashboardContent() {
             <select class="filter-select" id="filterMatiere">
                 <option value="">Toutes matières</option>
                 <option>Algorithmique</option>
-                <option>Python</option>
+                <option> Programmation Python</option>
                 <option>Maths</option>
             </select>
             <select class="filter-select" id="filterNiveau">
@@ -56,7 +56,7 @@ function loadDashboardContent() {
             <div class="match-card">
                 <div class="avatar">MB</div>
                 <div class="match-info">
-                    <div class="match-name">Moussa Bello · Master Cloud</div>
+                    <div class="match-name">Moussa Bello · Master2</div>
                     <div class="match-meta">Disponible: Soirs de semaine</div>
                     <div class="match-tags">
                         <span class="match-tag">Python</span>
@@ -100,8 +100,8 @@ function showDashboardPage(page) {
             <div class="profile-header">
                 <div class="avatar avatar-lg">KA</div>
                 <div>
-                    <h2>Kofi Adjovi</h2>
-                    <p class="match-meta">L1 Génie Logiciel · IFRI</p>
+                    <h2>AGOSSOU Betrand</h2>
+                    <p class="match-meta">L1 GL · IFRI</p>
                     <p>Passionné par le développement, je cherche à progresser en algorithmique</p>
                 </div>
             </div>
@@ -135,8 +135,8 @@ function showDashboardPage(page) {
             <h3>Modifier mon profil</h3>
             <form class="profile-section">
                 <div class="form-row">
-                    <div class="form-group"><label>Nom</label><input value="Kofi"></div>
-                    <div class="form-group"><label>Prénom</label><input value="Adjovi"></div>
+                    <div class="form-group"><label>Nom</label><input value="DAHA"></div>
+                    <div class="form-group"><label>Prénom</label><input value="Mariano"></div>
                 </div>
                 <div class="form-group"><label>Email</label><input value="kofi@ifri.edu"></div>
                 <div class="form-group"><label>Téléphone</label><input value="+229 01 XX XX XX"></div>
@@ -154,7 +154,7 @@ function showDashboardPage(page) {
                 <h4>Matières où je peux aider (mentor)</h4>
                 <div class="tags-group">
                     <span class="tag selected-strength">Python</span>
-                    <span class="tag selected-strength">Web</span>
+                    <span class="tag selected-strength"> Developpement Web</span>
                     <span class="tag selected-strength">SQL</span>
                     <span class="tag">+ Ajouter</span>
                 </div>
@@ -163,7 +163,7 @@ function showDashboardPage(page) {
                 <h4>Matières où j'ai besoin d'aide (mentoré)</h4>
                 <div class="tags-group">
                     <span class="tag selected-weakness">Algorithmique</span>
-                    <span class="tag selected-weakness">Maths</span>
+                    <span class="tag selected-weakness">Algèbre linéaire</span>
                     <span class="tag">+ Ajouter</span>
                 </div>
             </div>
@@ -186,25 +186,25 @@ function showDashboardPage(page) {
         container.innerHTML = `
             <div class="profile-section">
                 <h3>Photo de profil</h3>
-                <div class="avatar avatar-lg" style="margin-bottom:1rem;">KA</div>
+                <div class="avatar avatar-lg" style="margin-bottom:1rem;">DM</div>
                 <input type="file" accept="image/*">
                 <button class="btn btn-accent mt-3">Télécharger</button>
             </div>
         `;
     } else if (page === 'settings') {
-        container.innerHTML = `
-            <div class="profile-section">
-                <h3>Paramètres du compte</h3>
-                <div class="form-group"><label><input type="checkbox"> Notifications par email</label></div>
-                <div class="form-group"><label><input type="checkbox"> Notifications push</label></div>
-                <div class="form-group">
-                    <label>Langue</label>
-                    <select><option>Français</option><option>English</option></select>
-                </div>
-                <button class="btn btn-danger">Désactiver mon compte</button>
+    container.innerHTML = `
+        <div class="profile-section">
+            <h3>Paramètres du compte</h3>
+            <div class="form-group"><label><input type="checkbox"> Notifications par email</label></div>
+            <div class="form-group"><label><input type="checkbox"> Notifications push</label></div>
+            <div class="form-group">
+                <label>Langue</label>
+                <select><option>Français</option><option>English</option></select>
             </div>
-        `;
+            <button class="btn btn-danger">Désactiver mon compte</button>
+        </div>
+    `;
     } else {
         loadDashboardContent();
-    }
+     }
 }

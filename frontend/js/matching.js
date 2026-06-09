@@ -115,10 +115,7 @@ function loadMatchingContent() {
                 <option value="matin">Matin (08h – 12h)</option>
                 <option value="soir">Soir (17h – 21h)</option>
             </select>
-            </div>
-                        <div class="form-group">
-                            <textarea placeholder="Description..."></textarea>
-                        </div>
+                   </div>
                         <button class="btn btn-accent">Publier</button>
                     </div>
                 `;

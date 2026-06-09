@@ -13,7 +13,19 @@ document.addEventListener('DOMContentLoaded', function () {
     // --- Inscription ---
     document.getElementById('registerForm')?.addEventListener('submit', (e) => {
         e.preventDefault();
-        showPage('dashboard');
+        function verifierMotDePasse() {
+    const password = document.getElementById('password').value;
+    const confirm = document.getElementById('confirm-password').value;
+
+    if (password !== confirm) {
+        alert('Les mots de passe ne correspondent pas.');
+        return false;
+    }
+    return true;
+}
+        if (verifierMotDePasse()) {
+            showPage('dashboard');
+        }
     });
 
     // --- Mot de passe oublié ---

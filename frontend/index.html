@@ -116,7 +116,7 @@
 <!-- PAGE CONNEXION -->
 <div id="page-login" class="page">
     <div class="auth-container"><div class="auth-card"><h2>Connexion</h2><p class="subtitle">Bon retour sur IFRI_MentorLink</p>
-        <form id="loginForm"><div class="form-group"><label>Email ou téléphone</label><input type="text" placeholder="exemple@ifri.edu" required></div>
+        <form id="loginForm"><div class="form-group"><label>Email ou téléphone</label><input type="text" placeholder="exemple@gmail.com" required></div>
         <div class="form-group"><label>Mot de passe</label><input type="password" placeholder="••••••••" required></div>
         <div class="forgot-link"><a href="#" onclick="showPage('forgot')">Mot de passe oublié ?</a></div>
         <button type="submit" class="btn btn-accent btn-full">Se connecter</button>
@@ -128,11 +128,12 @@
 <div id="page-register" class="page">
     <div class="auth-container"><div class="auth-card"><h2>Créer un compte</h2><p class="subtitle">Rejoignez la communauté MentorLink</p>
         <form id="registerForm"><div class="form-row"><div class="form-group"><label>Nom</label><input type="text" id="regNom" required></div><div class="form-group"><label>Prénom</label><input type="text" id="regPrenom" required></div></div>
-        <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="prenom.nom@ifri.edu" required></div>
-        <div class="form-group"><label>Téléphone</label><input type="tel" id="regTel" placeholder="+229 XX XX XX XX"></div>
-        <div class="form-row"><div class="form-group"><label>Filière</label><select id="regFiliere"><option>Génie Logiciel (GL)</option><option>Intelligence Artificielle (IA)</option><option>Sécurité informatique (SI)</option><option>SE-iOT</option><option>Internet et multimédia (IM)</option></select></div>
-        <div class="form-group"><label>Niveau</label><select id="regNiveau"><option>L1</option><option>L2</option><option>L3</option><option>Master 1</option><option>Master 2</option></select></div></div>
+        <div class="form-group"><label>Email</label><input type="email" id="regEmail" placeholder="prenom.nom@.gmail.com" required></div>
+        <div class="form-group"><label>Téléphone</label><input type="tel" id="regTel" placeholder="+229 XX XX XX XX" required></div>
+        <div class="form-row"><div class="form-group"><label>Filière</label><select id="regFiliere"><option>GL</option><option>IA</option><option>SI</option><option>SeIOT</option><option>IM</option></select></div>
+        <div class="form-group"><label>Niveau</label><select id="regNiveau"><option>L1</option><option>L2</option><option>L3</option><option>Master1</option><option>Master2</option></select></div></div>
         <div class="form-group"><label>Mot de passe</label><input type="password" id="regPassword" required></div>
+        <div class="form-group"><label>Confirmer le mot de passe</label><input type="password" id="confirm-password" required></div>
         <button type="submit" class="btn btn-accent btn-full">Créer mon compte</button>
         <div class="auth-footer">Déjà inscrit ? <a href="#" onclick="showPage('login')">Se connecter</a></div></form>
     </div></div>
@@ -211,10 +212,16 @@
 <div id="page-500" class="page">
     <div class="error-container"><i class="bi bi-server"></i><h1>500</h1><p>Erreur serveur</p><button class="btn btn-accent" onclick="showPage('home')">Réessayer</button></div>
 </div>
-
-<!-- ==================== MODULES JS ====================
-     Ordre important : theme et navigation en premier,
-     puis les modules métier qui appellent leurs fonctions. -->
+<footer class="footer">
+    <div class="footer-container">
+        <p>&copy; 2026 IFRI_MentorLink. Tous droits réservés.</p>
+        <div class="footer-links">
+            <a href="#" onclick="showPage('about')">À propos</a>
+            <a href="#" onclick="showPage('howitworks')">Fonctionnement</a>
+            <a href="#" onclick="showPage('faq')">FAQ</a>
+        </div>
+    </div>
+</footer>
 <script src="js/theme.js"></script>
 <script src="js/navigation.js"></script>
 <script src="js/auth.js"></script>
@@ -222,6 +229,6 @@
 <script src="js/matching.js"></script>
 <script src="js/messenger.js"></script>
 <script src="js/profile.js"></script>
-
+<script src="js/about.js"></script>
 </body>
 </html>

@@ -181,9 +181,9 @@ background-clip: text;
     transition: all 0.2s;
 }
 .feature-card:hover, .about-card:hover { border-color: var(--accent); transform: translateY(-3px); }
-.feature-icon { font-size: 2rem; margin-bottom: 1rem; }
+.feature-icon { font-size: 2.5rem; margin-bottom: 1rem; }
 .feature-card h3 { margin-bottom: 0.7rem; }
-.feature-card p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+.feature-card p { color: var(--muted); font-size: 1rem; line-height: 1.6; }
 
 /* Container */
 .container-custom {
@@ -550,7 +550,26 @@ background-clip: text;
     border-radius: 8px;
     color: var(--text);
 }
+.footer {
+    padding: 20px;
+    border-top: 1px solid #e0e0e0;
+}
 
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-links {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-links a {
+    text-decoration: none;
+}
 
 /* Responsive */
 @media (max-width: 768px) {
