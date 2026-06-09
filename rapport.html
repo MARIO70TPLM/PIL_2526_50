@@ -194,11 +194,7 @@
                         <td>Génie Logiciel (GL)</td>
                         <td>Backend</td>
                     </tr>
-                    <tr>
-                        <td>uukkj</td>
-                        <td>[Filière]</td>
-                        <td>Backend</td>
-                    </tr>
+
                     <tr>
                         <td>AGO Esséname Clotilde</td>
                         <td>Génie Logiciel (GL)</td>
@@ -208,6 +204,11 @@
                         <td>DAHA Edouard Mariano</td>
                         <td>Internet et Multimédia</td>
                         <td>Frontend</td>
+                    </tr>
+                    <tr>
+                        <td>TANSI DAHOU Josué</td>
+                        <td>Intelligence Artificielle</td>
+                        <td style="color: orange;">Aucune contribution -- Absent durant tout le projet pour des raison de santé (hospitalisation)</td>
                     </tr>
                 </tbody>
             </table>
@@ -258,6 +259,10 @@
                         <td>SAIZONOU Maadjidah Gloria Modoukpê</td>
                         <td>Rapport HTML, documentation technique</td>
                     </tr>
+                    <tr>
+                        <td>TANSI DAHOU Josué</td>
+                        <td style="color: orange;">Absent pour des raisons de santé (hospitalisation)- N'a pas participé au developpement du projet</td>
+                    </tr>
                 </tbody>
             </table>
 
@@ -265,10 +270,10 @@
             <p>
                 Le projet a été réalisé en plusieurs phases :
             </p>
-            <ol>style="margin-left: 20px; line-height: 2;">                
+            <ol style="margin-left: 20px; line-height: 2;">                
                 <li>Analyse du cahier des charges et compréhension des exigences</li>
                 <li>Conception de la base de données</li>
-                <li>Conception du frontends</li>
+                <li>Conception du frontend</li>
                 <li>Développement des modules (profils, matching, messagerie)</li>
                 <li>Tests et corrections</li>
                 <li>Rédaction du rapport et de la documentation</li>
@@ -308,35 +313,47 @@ projet-racine/
                 </thead>
                 <tbody>
                     <tr>
-                        <td><code>utilisateur</code></td>
+                        <td><code>Utilisateur</code></td>
                         <td>Stocke les informations personnelles de chaque étudiant</td>
                     </tr>
                     <tr>
-                        <td><code>matière</code></td>
-                        <td>Liste des matières et compétences disponibles</td>
-                    </tr>
-                    <tr>
-                        <td><code>utilisateur_competence</code></td>
-                        <td>Relie les utilisateurs à leurs compétences et lacunes</td>
-                    </tr>
-                    <tr>
-                        <td><code>disponibilite</code></td>
-                        <td>Créneaux horaires de chaque utilisateur</td>
-                    </tr>
-                    <tr>
-                        <td><code>offres</code></td>
+                        <td><code>Offre</code></td>
                         <td>Offres et demandes de mentorat publiées</td>
                     </tr>
                     <tr>
-                        <td><code>matching</code></td>
+                        <td><code>Matiere</code></td>
+                        <td>Liste des matières et compétences disponibles</td>
+                    </tr>
+                    <tr>
+                        <td><code>Disponibilite</code></td>
+                        <td>Créneaux horaires de chaque utilisateur</td>
+                    </tr>
+                    <tr>
+                        <td><code>format</code></td>
+                        <td>Rencontre en ligne ou en présentielle</td>
+                    </tr>
+                    <tr>
+                        <td><code>Offre_Matiere</code></td>
+                        <td>Relie la table "Offre" et la table "Matiere"</td>
+                    </tr>
+                    <tr>
+                        <td><code>Offre_Disponibilite</code></td>
+                        <td>Relie la table "Offre" et la table "Disponibilite"</td>
+                    </tr>
+                    <tr>
+                        <td><code>Offre_Format</code></td>
+                        <td>Relie la table "Offre" et la table "Format"</td>
+                    </tr>
+                    <tr>
+                        <td><code>Score_matching</code></td>
                         <td>Paires mentor-mentoré générées par l'algorithme</td>
                     </tr>
                     <tr>
-                        <td><code>conversation</code></td>
+                        <td><code>Conversation</code></td>
                         <td>Conversations entre utilisateurs</td>
                     </tr>
                     <tr>
-                        <td><code>message</code></td>
+                        <td><code>Message</code></td>
                         <td>Messages échangés dans les conversations et entre les utilisateurs</td>
                     </tr>
                 </tbody>
@@ -350,7 +367,7 @@ projet-racine/
             <h3>Prérequis</h3>
             <ul style="margin-left: 20px; line-height: 2;">
                 <li>Python 3.x installé</li>
-                <li>MySQL ou PostgreSQL installé</li>
+                <li>MySQL installé</li>
                 <li>Git installé</li>
             </ul>
 
@@ -362,15 +379,26 @@ git clone https://github.com/[compte]/PIL1_2526_50.git
 # 2. Aller dans le dossier backend
 cd PIL1_2526_50/backend
 
-# 3. Installer les dépendances
+# 3. Créer un environnement virtuel
+python3 -m venv env
+source env/bin/activate
+
+# 4. Installer les dépendances
 pip install -r requirements.txt
 
-# 4. Créer la base de données
+# 5. Créer la base de données
 mysql -u root -p &lt; ../database/mentorlink.sql
 
-# 5. Lancer l'application
-python app.py
+# 6. Appliquer les migrations Djando
+python manage.py migrate
+
+# 7. Lancer le serveur
+python manage.py runserver
             </pre>
+            <h3>Accéder à l'application</h3>
+            <p>
+                Une fois le serveur lancé, ouvrez votre navigateur et rendez-vous sur : <code>http://127.0.0.1:8000</code> 
+            </p>
         </section>
 
         <!-- SECTION 5 : MANUEL D'UTILISATION -->
@@ -379,30 +407,32 @@ python app.py
 
             <h3>Inscription</h3>
             <p>
-                Rendez-vous sur la page d'accueil et cliquez sur
-                <strong>"S'inscrire"</strong>. Remplissez le formulaire avec
+                Allez sur la page d'accueil et cliquez sur
+                <strong>"Inscription"</strong>. Remplissez le formulaire avec
                 vos informations personnelles (nom, prénom, email, téléphone,
-                mot de passe, filière et niveau).
+                mot de passe, filière et niveau) puis cliquez sur <strong>"Creer mon compte"</strong>
             </p>
 
             <h3>Connexion</h3>
             <p>
                 Entrez votre adresse email ou numéro de téléphone ainsi que
-                votre mot de passe sur la page de connexion.
+                votre mot de passe sur la page de connexion puis cliquez sur <strong>"Se connecter"</strong>
             </p>
 
             <h3>Compléter son profil</h3>
             <p>
                 Après connexion, accédez à votre profil pour ajouter vos
                 compétences maîtrisées, vos lacunes et vos disponibilités
-                horaires.
+                horaires en cliquant sur <strong>"Matching"</strong> puis sur <strong>"Dashboard"</strong>. Sélectionnez le champ voulu et modifier
             </p>
 
             <h3>Publier une offre ou demande de mentorat</h3>
             <p>
-                Cliquez sur <strong>"Nouvelle offre"</strong> ou
-                <strong>"Nouvelle demande"</strong>, choisissez la matière
-                concernée, le format et vos disponibilités.
+                Cliquez sur <strong>"Matching"</strong> puis défilez vers le bas. Remplissez avec les informations de votre choix 
+                ensuite cliquez <strong>"Publier"
+
+                </strong>
+                
             </p>
 
             <h3>Trouver un mentor ou mentoré</h3>
