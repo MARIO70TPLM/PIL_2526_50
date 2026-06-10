@@ -1,6 +1,15 @@
 // ==================== MODULE THÈME ====================
 // Gestion du mode sombre / clair
+// api.js
 
+
+function getAuthHeaders() {
+    const token = localStorage.getItem('access_token');
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    };
+}
 function initTheme() {
     const savedTheme = localStorage.getItem('mentorlink-theme');
     const darkModeToggle = document.getElementById('darkModeToggle');
