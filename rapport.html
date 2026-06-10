@@ -265,18 +265,15 @@
                     </tr>
                 </tbody>
             </table>
-
             <h3>Démarche suivie</h3>
-            <p>
-                Le projet a été réalisé en plusieurs phases :
-            </p>
-            <ol style="margin-left: 20px; line-height: 2;">                
-                <li>Analyse du cahier des charges et compréhension des exigences</li>
-                <li>Conception de la base de données</li>
-                <li>Conception du frontend</li>
-                <li>Développement des modules (profils, matching, messagerie)</li>
+            <p>Le projet a été réalisé en plusieurs phases successives :</p>
+            <ol style="margin-left: 20px; line-height: 2.2;">
+                <li>Lecture et analyse du cahier des charges</li>
+                <li>Conception de la base de données (MCD → MLD → SQL)</li>
+                <li>Développement du frontend (interface HTML/CSS/JS)</li>
+                <li>Développement du backend Flask (authentification, offres, matching, messagerie)</li>
                 <li>Tests et corrections</li>
-                <li>Rédaction du rapport et de la documentation</li>
+                <li>Rédaction du rapport et dépôt des livrables sur GitHub</li>
             </ol>
         </section>
 
@@ -286,22 +283,27 @@
 
             <h3>Structure du projet</h3>
             <pre>
-PIL1_2526_50/
-projet-racine/
-├──🗂️ src/
-│   ├── 🗂️backend/   # Code serveur
-│   └── 🗂️frontend/  # Code client
-├── 🗂️tests/         # Suite de tests
-├── 🗂️docs/          # Documentation
-├── 📄 README.md      # Ce fichier
-└── 📄 .gitignore
+PIL_2526_50/
+├── backend/
+│   ├── app.py               # Point d'entrée Flask
+│   ├── mentorlink.sql       # Structure complète de la base de données
+│   └── routes/
+│       ├── auth.py          # Inscription, connexion, déconnexion
+│       ├── offres.py        # Gestion des offres et demandes
+│       ├── matching.py      # Algorithme de score de compatibilité
+│       └── messagerie.py    # Conversations et messages
+├── front-end/
+│   └── index.html           # Interface utilisateur (SPA)
+├── docs/
+├── Architecture.md
+├── rapport.html
+└── README.md
             </pre>
 
             <h3>Base de données</h3>
             <p>
-                La base de données <strong>ifri_mentorlink</strong> est gérée avec MySQL.Elle est composée de tables 
-                interconnectées permettant de gérer les utilisateurs,les matières, les disponibilités, les offres de mentorat,
-                les matchings et la messagerie.
+                La base de données <strong>mentorlink</strong> est gérée avec MySQL. Elle est composée de 11 tables 
+                interconnectées couvrant la gestion des utilisateurs, des offres de mentorat, du matching et de la messagerie.
             </p>
 
             <table>
@@ -312,52 +314,27 @@ projet-racine/
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td><code>Utilisateur</code></td>
-                        <td>Stocke les informations personnelles de chaque étudiant</td>
-                    </tr>
-                    <tr>
-                        <td><code>Offre</code></td>
-                        <td>Offres et demandes de mentorat publiées</td>
-                    </tr>
-                    <tr>
-                        <td><code>Matiere</code></td>
-                        <td>Liste des matières et compétences disponibles</td>
-                    </tr>
-                    <tr>
-                        <td><code>Disponibilite</code></td>
-                        <td>Créneaux horaires de chaque utilisateur</td>
-                    </tr>
-                    <tr>
-                        <td><code>format</code></td>
-                        <td>Rencontre en ligne ou en présentielle</td>
-                    </tr>
-                    <tr>
-                        <td><code>Offre_Matiere</code></td>
-                        <td>Relie la table "Offre" et la table "Matiere"</td>
-                    </tr>
-                    <tr>
-                        <td><code>Offre_Disponibilite</code></td>
-                        <td>Relie la table "Offre" et la table "Disponibilite"</td>
-                    </tr>
-                    <tr>
-                        <td><code>Offre_Format</code></td>
-                        <td>Relie la table "Offre" et la table "Format"</td>
-                    </tr>
-                    <tr>
-                        <td><code>Score_matching</code></td>
-                        <td>Paires mentor-mentoré générées par l'algorithme</td>
-                    </tr>
-                    <tr>
-                        <td><code>Conversation</code></td>
-                        <td>Conversations entre utilisateurs</td>
-                    </tr>
-                    <tr>
-                        <td><code>Message</code></td>
-                        <td>Messages échangés dans les conversations et entre les utilisateurs</td>
-                    </tr>
+                    <tr><td><code>Utilisateur</code></td><td>Informations personnelles de chaque étudiant (nom, email, filière, niveau, mot de passe hashé...)</td></tr>
+                    <tr><td><code>Offre</code></td><td>Offres et demandes de mentorat publiées par les utilisateurs</td></tr>
+                    <tr><td><code>Matiere</code></td><td>Liste des matières et compétences disponibles</td></tr>
+                    <tr><td><code>Disponibilite</code></td><td>Créneaux horaires généraux (matin / midi / après-midi par jour)</td></tr>
+                    <tr><td><code>Format</code></td><td>Format de rencontre : en ligne ou présentiel</td></tr>
+                    <tr><td><code>Offre_Matiere</code></td><td>Table de liaison entre Offre et Matiere (relation N-N)</td></tr>
+                    <tr><td><code>Offre_Disponibilite</code></td><td>Table de liaison entre Offre et Disponibilite (relation N-N)</td></tr>
+                    <tr><td><code>Offre_Format</code></td><td>Table de liaison entre Offre et Format (relation N-N)</td></tr>
+                    <tr><td><code>Score_matching</code></td><td>Scores de compatibilité calculés entre paires d'offres mentor/mentoré</td></tr>
+                    <tr><td><code>Conversation</code></td><td>Conversations entre deux utilisateurs matchés</td></tr>
+                    <tr><td><code>Message</code></td><td>Messages échangés au sein des conversations</td></tr>
                 </tbody>
             </table>
+
+            <h3>Architecture logicielle</h3>
+            <p>
+                L'application suit une architecture <strong>client-serveur</strong>. Le frontend (HTML/CSS/JavaScript) 
+                communique avec le backend via des requêtes HTTP. Le backend Python Flask reçoit ces requêtes, 
+                interroge la base MySQL, et retourne les données en JSON. Les mots de passe sont hashés 
+                avec la bibliothèque <code>werkzeug.security</code>.
+            </p>
         </section>
 
         <!-- SECTION 4 : DÉPLOIEMENT -->
@@ -367,37 +344,40 @@ projet-racine/
             <h3>Prérequis</h3>
             <ul style="margin-left: 20px; line-height: 2;">
                 <li>Python 3.x installé</li>
-                <li>MySQL installé</li>
+                <li>MySQL installé et en cours d'exécution</li>
                 <li>Git installé</li>
+                <li>pip installé</li>
             </ul>
 
             <h3>Étapes d'installation</h3>
             <pre>
 # 1. Cloner le dépôt
-git clone https://github.com/[compte]/PIL1_2526_50.git
+git clone https://github.com/MARIO70TPLM/PIL_2526_50.git
+cd PIL_2526_50
 
-# 2. Aller dans le dossier backend
-cd PIL1_2526_50/backend
+# 2. Installer les dépendances Python
+pip install flask flask-mysqldb werkzeug --break-system-packages
 
-# 3. Créer un environnement virtuel
-python3 -m venv env
-source env/bin/activate
+# 3. Créer la base de données MySQL
+sudo mysql -u root
+CREATE DATABASE mentorlink;
+exit
 
-# 4. Installer les dépendances
-pip install -r requirements.txt
+# 4. Importer la structure de la base de données
+sudo mysql -u root mentorlink &lt; backend/mentorlink.sql
 
-# 5. Créer la base de données
-mysql -u root -p &lt; ../database/mentorlink.sql
+# 5. Configurer la connexion dans backend/app.py
+# Modifier MYSQL_PASSWORD avec votre mot de passe root MySQL
 
-# 6. Appliquer les migrations Djando
-python manage.py migrate
-
-# 7. Lancer le serveur
-python manage.py runserver
+# 6. Lancer le serveur Flask
+cd backend
+python3 app.py
             </pre>
+
             <h3>Accéder à l'application</h3>
             <p>
-                Une fois le serveur lancé, ouvrez votre navigateur et rendez-vous sur : <code>http://127.0.0.1:8000</code> 
+                Une fois le serveur lancé, ouvrez votre navigateur et rendez-vous sur : 
+                <code>http://127.0.0.1:5000</code>
             </p>
         </section>
 
@@ -407,54 +387,51 @@ python manage.py runserver
 
             <h3>Inscription</h3>
             <p>
-                Allez sur la page d'accueil et cliquez sur
-                <strong>"Inscription"</strong>. Remplissez le formulaire avec
-                vos informations personnelles (nom, prénom, email, téléphone,
-                mot de passe, filière et niveau) puis cliquez sur <strong>"Creer mon compte"</strong>
+                Rendez-vous sur la page d'accueil et cliquez sur <strong>"S'inscrire"</strong>. 
+                Remplissez le formulaire avec vos informations personnelles (nom, prénom, email, numéro de téléphone, 
+                mot de passe, filière et niveau d'études), puis cliquez sur <strong>"Créer mon compte"</strong>.
             </p>
 
             <h3>Connexion</h3>
             <p>
-                Entrez votre adresse email ou numéro de téléphone ainsi que
-                votre mot de passe sur la page de connexion puis cliquez sur <strong>"Se connecter"</strong>
+                Entrez votre adresse email et votre mot de passe sur la page de connexion, 
+                puis cliquez sur <strong>"Se connecter"</strong>.
             </p>
 
             <h3>Compléter son profil</h3>
             <p>
-                Après connexion, accédez à votre profil pour ajouter vos
-                compétences maîtrisées, vos lacunes et vos disponibilités
-                horaires en cliquant sur <strong>"Matching"</strong> puis sur <strong>"Dashboard"</strong>. Sélectionnez le champ voulu et modifier
+                Après connexion, accédez à votre profil pour renseigner vos compétences maîtrisées, 
+                vos matières où vous avez besoin d'aide, et vos disponibilités horaires.
             </p>
 
             <h3>Publier une offre ou demande de mentorat</h3>
             <p>
-                Cliquez sur <strong>"Matching"</strong> puis défilez vers le bas. Remplissez avec les informations de votre choix 
-                ensuite cliquez <strong>"Publier"
-
-                </strong>
-                
+                Rendez-vous dans la section <strong>"Matching"</strong>, remplissez le formulaire de publication 
+                (matières concernées, disponibilités, format souhaité) et cliquez sur <strong>"Publier"</strong>.
             </p>
 
             <h3>Trouver un mentor ou mentoré</h3>
             <p>
-                Accédez à la section <strong>"Matching"</strong> pour voir
-                les suggestions générées automatiquement selon vos
-                compétences et disponibilités.
+                La section <strong>"Matching"</strong> affiche automatiquement les profils compatibles 
+                avec le vôtre, classés par score de compatibilité. Vous y trouvez les matières en commun, 
+                les disponibilités communes et le score de compatibilité.
             </p>
 
             <h3>Messagerie</h3>
             <p>
-                Depuis la section <strong>"Messages"</strong>, vous pouvez
-                envoyer et recevoir des messages avec vos mentors ou mentorés.
+                Une fois un match établi, le bouton <strong>"Contacter"</strong> devient disponible sur le profil 
+                du mentor ou mentoré. Depuis la section <strong>"Messages"</strong>, vous pouvez envoyer et 
+                recevoir des messages et consulter l'historique de vos conversations.
             </p>
         </section>
 
     </main>
 
-    <!-- PIED DE PAGE -->
     <footer>
-        <p>IFRI_MentorLink &copy; 2026 - Groupe 50 - PIL1 IFRI UAC</p>
+        <p>IFRI_MentorLink &copy; 2026 &mdash; Groupe 50 &mdash; PIL1 IFRI UAC</p>
     </footer>
 
 </body>
-</html>     
+</html>
+
+           
