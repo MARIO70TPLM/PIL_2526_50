@@ -97,3 +97,15 @@ def repondre_offre(request, offre_id):
         )
         return redirect('detail_conversation', conversation_id=conversation.id)
     return render(request, 'index.html', {'offre': offre})
+
+# ============================================================
+# GESTION DES ERREURS
+# ============================================================
+
+def erreur_404(request, exception):
+    # Page non trouvée
+    return render(request, 'index.html', {'erreur': 'Page introuvable'}, status=404)
+
+def erreur_500(request):
+    # Erreur serveur
+    return render(request, 'index.html', {'erreur': 'Erreur serveur'}, status=500)

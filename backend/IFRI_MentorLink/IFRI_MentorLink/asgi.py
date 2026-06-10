@@ -1,16 +1,20 @@
-"""
-ASGI config for IFRI_MentorLink project.
-
-It exposes the ASGI callable as a module-level variable named ``application``.
-
-For more information on this file, see
-https://docs.djangoproject.com/en/6.0/howto/deployment/asgi/
-"""
-
 import os
-
 from django.core.asgi import get_asgi_application
+from channels.routing import ProtocolTypeRouter, URLRouter
+from channels.auth import AuthMiddlewareStack
+import messagerie.routing
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'IFRI_MentorLink.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'IFRI_MentorLink.IFRI_MentorLink.settings')
 
-application = get_asgi_application()
+# Configuration ASGI pour gérer HTTP et WebSocket
+application = ProtocolTypeRouter({
+    # Gestion des requêtes HTTP classiques
+    'http': get_asgi_application(),
+    
+    # Gestion des connexions WebSocket avec authentification
+    'websocket': AuthMiddlewareStack(
+        URLRouter(
+            messagerie.routing.websocket_urlpatterns
+        )
+    ),
+})

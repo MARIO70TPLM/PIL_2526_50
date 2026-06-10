@@ -16,3 +16,6 @@ urlpatterns = [
     # URLs de l'application messagerie
     path('messagerie/', include('messagerie.urls')),
 ]
+# Gestionnaires d'erreurs personnalisés
+handler404 = 'offres.views.erreur_404'
+handler500 = 'offres.views.erreur_500'

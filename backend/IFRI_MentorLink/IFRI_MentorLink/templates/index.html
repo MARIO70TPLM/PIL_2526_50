@@ -717,23 +717,50 @@
       el.classList.add('active');
     }
 
-    /* --- Envoi d'un message (messagerie) --- */
+    /* --- WebSocket pour la messagerie en temps réel --- */
+
+    let socket = null; 
+    let conversationId = null;
+    function initWebSocket(convId) {
+      conversationId = convId;
+    
+      socket = new WebSocket(`ws://${window.location.host}/ws/messagerie/${convId}/`);
+      socket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        const container = document.getElementById('chat-messages');
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'msg msg-received';
+        msgDiv.innerHTML = data.contenu + '<div class="msg-time">' + data.date + '</div>';
+        container.appendChild(msgDiv);
+        container.scrollTop = container.scrollHeight;
+    
+      };
+
+    }
+
+
     function sendMessage() {
+    
       const input = document.getElementById('chat-input');
-      const text  = input.value.trim();
-      if (!text) return;
+      const text = input.value.trim();
+    
+      if (!text || !socket) return;
+    
+      const now = new Date();   
+      const time = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');    
+      const msgDiv = document.createElement('div');   
+      msgDiv.className = 'msg msg-sent';    
+      msgDiv.innerHTML = text + '<div class="msg-time">' + time + '</div>';    
+      document.getElementById('chat-messages').appendChild(msgDiv);
 
-      const now     = new Date();
-      const time    = now.getHours().toString().padStart(2,'0') + ':' + now.getMinutes().toString().padStart(2,'0');
-      const msgDiv  = document.createElement('div');
-      msgDiv.className   = 'msg msg-sent';
-      msgDiv.innerHTML   = text + '<div class="msg-time">' + time + '</div>';
-
-      const container = document.getElementById('chat-messages');
-      container.appendChild(msgDiv);
-      container.scrollTop = container.scrollHeight;
+    
+      socket.send(JSON.stringify({       
+        'contenu': text,
+        'utilisateur_id': {{ request.user.id }} 
+      }));   
       input.value = '';
     }
+    
 
     function handleEnter(event) {
       if (event.key === 'Enter') sendMessage();

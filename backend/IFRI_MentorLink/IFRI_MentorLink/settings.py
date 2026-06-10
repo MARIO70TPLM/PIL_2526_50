@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
     'offres',
     'messagerie',
 ]
@@ -118,3 +119,11 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL = '/offres/'
+# Configuration de Django Channels pour les WebSockets
+ASGI_APPLICATION = 'IFRI_MentorLink.IFRI_MentorLink.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
