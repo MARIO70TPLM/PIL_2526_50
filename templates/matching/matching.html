@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="page-header mb-4">
+        <h1>Matching</h1>
+        <p class="text-muted">Correspondances basées sur ton profil et tes objectifs</p>
+    </div>
+
+    <form method="GET" class="filters-bar d-flex gap-2 mb-4">
+        <select name="matiere" class="form-select">
+            <option value="">Toutes matières</option>
+            {% for m in matieres %}<option value="{{ m.id }}">{{ m.nom }}</option>{% endfor %}
+        </select>
+        <button type="submit" class="btn btn-accent">Filtrer</button>
+    </form>
+
+    <h3>🎯 Correspondances actives</h3>
+    <div class="match-list mb-5">
+        {% for match in matches %}
+        <div class="match-card">
+            <div class="avatar">{{ match.mentor.first_name|first }}{{ match.mentor.last_name|first }}</div>
+            <div class="match-info">
+                <div class="match-name">{{ match.mentor.get_full_name }}</div>
+                <div class="match-meta">{{ match.mentor.filiere }} · {{ match.matiere.nom }}</div>
+                <div class="match-tags">
+                    <span class="badge bg-success">Score: {{ match.score }}%</span>
+                </div>
+            </div>
+            <a href="{% url 'matching:detail_match' match.id %}" class="btn btn-accent">Voir détail</a>
+        </div>
+        {% empty %}
+        <p>Aucune correspondance trouvée pour le moment.</p>
+        {% endfor %}
+    </div>
+
+    <h3>✏️ Publier une annonce</h3>
+    <div class="publish-form bg-light p-4 rounded border">
+        <form method="POST" action="{% url 'matching:creer_annonce' %}">
+            {% csrf_token %}
+            <div class="mb-3">
+                <select name="type" class="form-select">
+                    <option value="offre">Offre de mentorat</option>
+                    <option value="demande">Demande d'aide</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <textarea name="description" class="form-control" placeholder="Description de ta demande..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-accent">Publier</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

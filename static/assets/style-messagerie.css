@@ -1,0 +1,12 @@
+/* Styles pour la messagerie */
+.messenger-container { display: flex; height: 70vh; border: 1px solid #ddd; background: #fff; border-radius: 8px; overflow: hidden; }
+.conversations-list { width: 300px; border-right: 1px solid #ddd; overflow-y: auto; background: #f9f9f9; }
+.chat-window { flex: 1; display: flex; flex-direction: column; }
+.chat-header { padding: 15px; border-bottom: 1px solid #ddd; background: #fff; }
+.chat-messages { flex: 1; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; }
+.message { margin-bottom: 15px; display: flex; flex-direction: column; }
+.message.sent { align-items: flex-end; }
+.message.sent .message-bubble { background: #3498db; color: white; padding: 10px 15px; border-radius: 15px 15px 0 15px; }
+.message.received .message-bubble { background: #e1e1e1; color: #333; padding: 10px 15px; border-radius: 15px 15px 15px 0; }
+.chat-input-area { padding: 15px; border-top: 1px solid #ddd; display: flex; gap: 10px; }
+.chat-input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 20px; }

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="profile-card">
+        <h2 class="mb-4">Modifier mon profil</h2>
+        
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <div class="d-flex align-items-center mb-4">
+                <div class="avatar-lg me-4">{{ user.first_name|first }}</div>
+                <input type="file" name="photo" class="form-control" style="width: auto;">
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Nom</label>
+                        <input type="text" name="last_name" value="{{ user.last_name }}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Prénom</label>
+                        <input type="text" name="first_name" value="{{ user.first_name }}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Bio</label>
+                <textarea name="bio" class="form-control" rows="3">{{ user.bio }}</textarea>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Filière</label>
+                        <input type="text" name="filiere" value="{{ user.filiere }}">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label>Niveau</label>
+                        <select name="niveau">
+                            <option value="L1" {% if user.niveau == 'L1' %}selected{% endif %}>L1</option>
+                            <option value="L2" {% if user.niveau == 'L2' %}selected{% endif %}>L2</option>
+                            <option value="L3" {% if user.niveau == 'L3' %}selected{% endif %}>L3</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-accent w-100 mt-3">Enregistrer les modifications</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

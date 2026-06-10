@@ -1,0 +1,22 @@
+/* --- Style Matching --- */
+.match-list { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
+.match-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.2s;
+}
+.match-card:hover { transform: translateY(-3px); box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+.match-info { flex: 1; }
+.match-name { font-weight: bold; font-size: 1.1rem; }
+.match-meta { color: #718096; font-size: 0.9rem; }
+.avatar { 
+    width: 50px; height: 50px; background: var(--accent); color: white; 
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-weight: bold;
+}
+.filters-bar { background: #f8fafc; padding: 15px; border-radius: 8px; border: 1px solid #e2e8f0; }

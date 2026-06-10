@@ -1,0 +1,34 @@
+<div class="messenger-container">
+    <div class="conversations-list">
+        {% for data in conv_data %}
+        <a href="{% url 'messagerie:conversation_detail' data.conversation.pk %}" class="conv-item">
+            <div class="avatar">{{ data.autre_utilisateur.first_name|first }}</div>
+            <div class="conv-info">
+                <div class="conv-name">{{ data.autre_utilisateur.get_full_name }}</div>
+                <div class="conv-preview">{{ data.dernier_message.contenu_message|truncatechars:30 }}</div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+    <div class="chat-window">
+        <div class="chat-header">
+            <h4>{{ autre_utilisateur.get_full_name }}</h4>
+        </div>
+        
+        <div class="chat-messages">
+            {% for msg in messages %}
+            <div class="message {% if msg.id_utilisateur == request.user %}sent{% else %}received{% endif %}">
+                <div class="message-bubble">{{ msg.contenu_message }}</div>
+                <div class="msg-time">{{ msg.date_message|date:"H:i" }}</div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <form method="POST" action="{% url 'messagerie:envoyer_message' conversation.pk %}" class="chat-input-area">
+            {% csrf_token %}
+            <input type="text" name="contenu" class="chat-input" placeholder="Écrire un message..." required>
+            <button type="submit" class="btn btn-accent">Envoyer</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,13 @@
+/* Ajoute ceci dans ton static/assets/style.css */
+form p {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+form input {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+}

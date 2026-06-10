@@ -1,0 +1,17 @@
+/* Layout Dashboard */
+.dash-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; }
+.dash-card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.dash-card-value { font-size: 1.8rem; font-weight: bold; margin-top: 5px; }
+.text-success { color: #48bb78; }
+.text-primary { color: #3498db; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    .dash-grid { grid-template-columns: 1fr; }
+}

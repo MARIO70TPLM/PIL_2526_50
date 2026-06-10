@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container py-4">
+    <div class="page-header mb-4">
+        <h1>Bonjour, {{ user.first_name }} 👋</h1>
+        <p class="text-muted">Bienvenue sur ton tableau de bord MentorLink</p>
+    </div>
+
+    <div class="dash-grid mb-5">
+        <div class="dash-card">
+            <div class="dash-card-label">Matchs suggérés</div>
+            <div class="dash-card-value text-success">{{ nombre_matchs }}</div>
+        </div>
+        <div class="dash-card">
+            <div class="dash-card-label">Messages non lus</div>
+            <div class="dash-card-value text-primary">{{ non_lus }}</div>
+        </div>
+        <div class="dash-card">
+            <div class="dash-card-label">Mes annonces</div>
+            <div class="dash-card-value">{{ mes_annonces.count }}</div>
+        </div>
+    </div>
+
+    <h3 class="mb-3">🎯 Meilleurs matchs pour toi</h3>
+    <div class="match-list mb-5">
+        {% for match in matches %}
+        <div class="match-card">
+            <div class="avatar">{{ match.mentor.first_name|first }}{{ match.mentor.last_name|first }}</div>
+            <div class="match-info">
+                <div class="match-name">{{ match.mentor.get_full_name }}</div>
+                <div class="match-meta">{{ match.mentor.filiere }} · {{ match.matiere.nom }}</div>
+            </div>
+            <a href="{% url 'messagerie:demarrer_conversation' match.mentor.id %}" class="btn btn-accent">Contacter</a>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

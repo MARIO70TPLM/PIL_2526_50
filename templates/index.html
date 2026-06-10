@@ -1,0 +1,49 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IFRI MentorLink | Plateforme de mentorat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'assets/style.css' %}">
+</head>
+<body>
+
+<nav class="navbar-custom">
+    <div class="nav-container">
+        <div class="logo">IFRI<span>_</span>MentorLink</div>
+        <div class="nav-links">
+            <a href="/">Accueil</a>
+            <a href="{% url 'matching:dashboard' %}">Tableau de bord</a>
+            <a href="{% url 'matching:liste_offres' %}">Matching</a>
+            <a href="{% url 'messagerie:mes_conversations' %}">Messages</a>
+            <span class="nav-text">À propos</span>
+            <span class="nav-text">FAQ</span>
+            <span class="nav-text">Contact</span>
+        </div>
+        <div class="nav-actions">
+            <button id="darkModeToggle" class="theme-toggle"><i class="bi bi-moon-fill"></i></button>
+            <a href="{% url 'accounts:connexion' %}" class="btn btn-outline">Connexion</a>
+            <a href="{% url 'accounts:register' %}" class="btn btn-accent">Inscription</a>
+        </div>
+    </div>
+</nav> 
+
+<div id="page-home" class="page active">
+    <div class="hero">
+        <div class="hero-badge">🎓 Plateforme exclusive à l'IFRI</div>
+        <h1>Apprenons mieux,<br><em>Tous ensemble.</em></h1>
+        <p>Connectez-vous avec des mentors expérimentés et des collègues passionnés.</p>
+        <div class="hero-actions">
+            <a href="{% url 'accounts:register' %}" class="btn btn-accent btn-lg">Commencer</a>
+            <a href="{% url 'matching:liste_offres' %}" class="btn btn-outline btn-lg">Voir les annonces</a>
+        </div>
+    </div>
+</div>
+
+<script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+</html>
